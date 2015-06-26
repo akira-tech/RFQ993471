@@ -17,6 +17,7 @@
 @option2-color : #fbfcfd;
 @selection-color : #77b7e5;
 @footer-text-color : #dce7f5;
+@user-color : #6181a7;
 
 body {
 	background : @background-color;	
@@ -40,7 +41,19 @@ body {
 			margin-left : 10px;
 		}
 	}	
+
+
 }
+	.user-info {
+
+		background-color : @user-color!important;
+		color : @footer-text-color;
+		img {
+			border-radius : 50%;
+			width : 30px;
+			height : 30px;
+		}		
+	}
 
 #main-nav {
 	ul {
@@ -88,4 +101,193 @@ h1 {
 
 .page-header  {
 	margin-top : 0;
+}
+
+.header {
+	background : @header-color;
+}
+
+footer {
+	background : @footer-color;
+	height : @footer-height;
+
+	
+
+	span {
+		color : @footer-text-color;
+		line-height:150px;
+	}
+
+	a {
+		color : @white;
+		line-height:150px;
+	}
+}
+
+.navbar-nav {
+	> li {
+		> a {
+			line-height:30px;
+		}
+	}
+}
+
+.breakcumb {
+	padding : 15px 0;
+	ul {
+		margin:0;
+		padding:0;
+		li {
+			font-size : @font12;
+			list-style : none;
+			float : left;
+			color : @banner-color;
+		}
+	}
+}
+
+#home {
+	h2 {
+		text-transform : none;
+		color : @page-header-color;
+		font-size : @page-header-size;
+		margin-top : 0px;
+	}
+
+	#words {
+		height:430px;
+		width:100%;
+	}
+
+	#settings {
+		margin-bottom : 90px;
+		> div {
+			padding-top : 30px;
+			overflow:auto;
+			font-size : @font16;
+			background:@white;
+		}
+		.page-header {
+			background: @setting-header-color;
+			height:66px;				
+			padding:18px;
+			border-top-left-radius: 5px;
+			border-top-right-radius : 5px;		
+			margin-bottom:0px;
+		}
+
+		.form-group {
+			margin-top:1px;
+			margin-bottom:1px;
+		}
+
+		> div:nth-of-type(2) {
+			height:100px;
+			background:@white;			
+			color : @text-color;
+		}
+
+		> div:nth-of-type(3) {			
+			background:@option2-color;
+		}
+
+		.page-footer {
+			padding : 25px 15px;
+			border-bottom-left-radius : 5px;
+			border-bottom-right-radius : 5px;
+		}
+	}
+}
+
+.btn-round {
+	border-radius : 17px;
+}
+
+.btn-primary {
+	background:@btn-color;
+	border-color : @btn-color;
+}
+
+.btn-default {
+	background:transparent;
+	border-color : transparent;
+	color : @banner-color;
+}
+
+.input-style {
+	border : 1px solid @input-border-color;
+	font-size:@font16;	
+	line-height:@font12;
+	padding : 14px;
+	border-radius : 5px;	
+}
+
+.width90 {
+	width : 90%;
+	padding-right:15px;
+	padding-left:15px;
+}
+
+.edit-label {
+	margin-left: 18px;	
+	line-height:40px;
+}
+
+.input-width  {
+	width : 205px;
+}
+
+.option-item {
+	margin-bottom:15px;
+	.edit-label {
+		margin-left:0;
+	}
+}
+
+.option3 {
+	width : 42%;
+
+	.edit-label {
+		margin-right : 18px;
+		width : 162px;
+	}
+
+	margin-bottom : 15px;
+}
+
+.btn i.fa {
+	opacity : 0;
+}
+
+.btn.active i.fa {
+	opacity : 1;
+}
+
+.btn-check {
+	padding : 2px 4px 4px;
+	width : 24px;
+	height: 24px;
+	border-radius : 3px !important;
+}
+
+
+::-moz-selection {
+  background: @selection-color!important;
+ 
+}
+
+::selection {
+  background: @selection-color!important;  
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+	background: @selection-color;  
+	border-color : @selection-color;	
+}
+
+.check-label {
+	margin-left: 18px;
+	font-weight : 100;
+	font-size : @font16;
+
 }
