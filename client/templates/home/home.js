@@ -27,7 +27,7 @@ function draw(t, e) {
   
   	words = t;
     var n = vis.selectAll("text").data(words, function(t) {
-        return t.text.toLowerCase()
+        return t.text.toLowerCase()	
     });
 
     n.transition().duration(1e3).attr("transform", function(t) {
@@ -56,7 +56,7 @@ function draw(t, e) {
 	
 var fill = d3.scale.category20b(),
     w = $('#words').width(),
-    h = 600,
+    h = 430,
     words = [],
     max, scale = 1,    
     fontSize,   

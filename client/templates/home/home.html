@@ -1,11 +1,9 @@
 <template name="home">
-  <div class="template-home">
-    <div class="page-header">
-    	<div class="row">
-    		<div class="col-md-6">
-    			<h1 class="">FDA DATA VISUALIZATION</h1>		
-    		</div>
-    		<div class="col-md-3 pull-right">
+  <div class="template-home" id="home">
+    <div class="page-header" >
+      <h2 >Wordcloud Settings</h2>    
+    	
+    		<!-- <div class="col-md-3 pull-right">
     			<div class="input-group stylish-input-group">
 			      	<input type="text" class="form-control" id="search" name="search" value="oral" placeholder="Search Keyword">
 			      	<span class="input-group-addon">
@@ -14,12 +12,126 @@
 			      		</button>
       				</span>
       			</div>
-    		</div>
-    	</div>
+    		</div> -->
+    	
     </div>
 
-    <div id="words" >
+    <div id="words">
     </div>
+    <div class="row" id="settings">
 
+      <div class="page-header">
+         <button type="button" class="btn btn-primary btn-round">STRUCTURE</button>
+         <button type="button" class="btn btn-default btn-round">FONTS & COLORS</button>
+      </div>
+      <div class="form-group">
+        <div class="clearfix">
+          <div class="width90 pull-right">
+            <input type="text" class="col-md-12 input-style">          
+          </div>
+          <div class="edit-label pull-right" >
+            <label>URL</label>
+          </div>
+          
+        </div>
+      </div>
+      
+
+      <div class="form-group">
+        <div class="col-md-12 clearfix">
+          <div class="col-md-4 col-xs-4">
+              <div class="clearfix option-item">
+                <div class="col-md-3 edit-label text-right">
+                Spiral
+                </div>
+                <div class="col-md-9">
+                  <select class=" input-style input-width">
+                    <option value="rectangular">Rectangular</option>
+                  </select>
+                </div>
+              </div>
+           
+              <div class="clearfix option-item">
+                <div class="col-md-3 edit-label text-right">
+                form, 
+                </div>
+                <div class="col-md-9" >
+                    <input type="number" class=" input-style input-width" value="-90">
+                </div>
+              </div>
+
+          </div>
+
+          <div class="col-md-4 col-xs-4">
+              <div class="clearfix option-item">
+                <div class="col-md-3 edit-label text-right">
+                  Scale
+                </div>
+                <div class="col-md-9">
+                  <select class=" input-style input-width">
+                    <option value="rectangular">log n</option>
+                  </select>
+                </div>
+              </div>
+           
+              <div class="clearfix option-item">
+                <div class="col-md-3 edit-label text-right">
+                to,  
+                </div>
+                <div class="col-md-9" >
+                    <input type="number" class=" input-style input-width" value="+90">
+                </div>
+              </div>
+
+          </div>
+          <div class="col-md-4 col-xs-4">
+            Some text about this settings. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi dunt ut labore et dolore mangna aliqua. Ut enim ad minim veniam.
+          </div>
+        </div>        
+      </div>
+
+      <div class="form-group ">
+        <div class="option3 clearfix">
+            
+            <div class="edit-label pull-left">
+              Number of orientations
+            </div>
+
+           <div class="pull-left">
+              <input type="number" class=" input-style input-width" value="4">
+            </div>
+        </div>
+
+        <div class="option3 clearfix">
+              
+          <div class="edit-label text-right pull-left">
+              Number of words
+            </div>
+          <div class="pull-left" >
+              <input type="number" class=" input-style input-width" value="128">              
+            </div>
+            
+            
+          </div>
+
+
+          <div class="col-md-6 clearfix">
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-primary btn-check">
+                <input type="checkbox" autocomplete = "off">
+                <i class="fa fa-check"></i>
+              </label>
+
+              <label class="check-label"> One word per line </label>
+            </div>
+          </div>
+
+        </div>       
+
+      <div class="page-footer">
+        <button type="button" class="btn btn-primary">Save settings</button>
+      </div>
+
+    </div>
   </div>
 </template>

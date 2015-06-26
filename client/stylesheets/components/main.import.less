@@ -1,8 +1,45 @@
 @color : #e6e6e6;
+@header-color : #799cc5;
+@footer-color : #7b90ab;
+@footer-height : 148px;
+@background-color : #e7eef5;
+@logo-title : 22px;
+@font12  : 12px;
+@white : #fff;
+@banner-color : #89a6d2;
+@page-header-color : #687a8a;
+@page-header-size : 32px;
+@setting-header-color : #f3f7fa;
+@btn-color : #459fdf;
+@input-border-color : #dbe5ef;
+@font16 : 16px;
+@text-color : #a4acb5;
+@option2-color : #fbfcfd;
+@selection-color : #77b7e5;
+@footer-text-color : #dce7f5;
 
-.navbar-default {
-	background-color : #4d4d4d;
-	padding:0;
+body {
+	background : @background-color;	
+}
+
+.container {
+	width: 970px;	
+}
+
+.navbar-header {
+	
+	.logo {		
+		padding:14px 0;
+		height:60px;
+		img {
+			vertical-align : top;
+		}
+		span {
+			font-size: @logo-title;
+			color : @white;
+			margin-left : 10px;
+		}
+	}	
 }
 
 #main-nav {
@@ -18,8 +55,8 @@
 
 		li.active {
 			a {
-				background-color: #e98325;
-				border-color:#c46814;
+				background-color: @btn-color;
+				border-color:@btn-color;
 				color:#fff;
 			}
 		}
