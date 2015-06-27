@@ -4,82 +4,100 @@
         <form class="form-horizontal">
             <div id="settings">
                 <div class="row">
-                    <div class="col-md-12 page-header"><h2>Settings</h2></div>
-                </div>
-                <div class="row settings">
-                    <div class="col-md-4 clearfix">
-                        <h3>Spiral</h3>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="spiral" value="archimedean" checked>
-                                Archimedean
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="spiral" value="rectangular">
-                                Rectangular
-                            </label>
-                        </div>
-                        <h3>Font</h3>
-                        <select class="col-md-6" name="font" id="font">
-                            <option value="Arial">Arial</option>
-                            <option value="Impact">Impact</option>
-                            <option value="Times">Times</option>
-                            <option value="Courier">Courier</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 clearfix">
-                        <h3>Scale</h3>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="scale" value="log" checked>
-                                log(n)
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="scale" value="sqrt">
-                                √n
-                            </label>
-                        </div>
-                        <div class="radio disabled">
-                            <label>
-                                <input type="radio" name="scale" value="linear">
-                                n
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 clearfix">
-                        <h3>Orientation</h3>
-                        <div class="form-group">
-                            <label for="angle-from" class="col-md-4 control-label">From</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text" name="from" id="angle-from"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="angle-to" class="col-md-4 control-label">To</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text" name="to" id="angle-to"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="angle-count" class="col-md-4 control-label">Steps</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text" name="steps" id="angle-count"/>
-                            </div>
-                        </div>
+                    <div class="col-md-12 page-header">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#settings_panel" aria-controls="home" role="tab" data-toggle="tab" id="settings_tab"><h2>Settings</h2></a></li>
+                            <li role="presentation"><a href="#legend_panel" aria-controls="profile" role="tab" data-toggle="tab" id="legend_tab"><h2>Legend</h2></a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 page-footer">
-                        <button type="button" id="update" class="btn btn-primary">Update</button>
+                <div class="tab-content row">
+                    <div role="tabpanel" class="tab-pane active" id="settings_panel">
+                        <div class="settings row">
+                            <div class="col-md-4 clearfix">
+                                <h3>Spiral</h3>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="spiral" value="archimedean" checked>
+                                        Archimedean
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="spiral" value="rectangular">
+                                        Rectangular
+                                    </label>
+                                </div>
+                                <label>
+                                    <h3>Font</h3>
+                                    <select class="col-md-6 form-control" name="font" id="font">
+                                        <option value="Arial">Arial</option>
+                                        <option value="Impact">Impact</option>
+                                        <option value="Times">Times</option>
+                                        <option value="Courier">Courier</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="col-md-4 clearfix">
+                                <h3>Scale</h3>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="scale" value="log" checked>
+                                        log(n)
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="scale" value="sqrt">
+                                        √n
+                                    </label>
+                                </div>
+                                <div class="radio disabled">
+                                    <label>
+                                        <input type="radio" name="scale" value="linear">
+                                        n
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 clearfix">
+                                <h3>Orientation</h3>
+                                <div class="form-group">
+                                    <label for="angle-from" class="col-md-4 control-label">From</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" name="from" id="angle-from"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="angle-to" class="col-md-4 control-label">To</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" name="to" id="angle-to"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="angle-count" class="col-md-4 control-label">Steps</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" name="steps" id="angle-count"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 page-footer">
+                                <div class="pull-left">
+                                    <button type="button" id="update" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 page-footer">
+                                <div class="pull-right">
+                                    <a href="#" id="download-svg" class="btn">Download .SVG</a>
+                                    <a href="#" id="download-png" class="btn">Download .PNG</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 page-footer">
-                        <div class="pull-right">
-                            <a href="#" id="download-svg" class="btn">Download .SVG</a>
-                            <a href="#" id="download-png" class="btn">Download .PNG</a>
+                    <div role="tabpanel" class="tab-pane active" id="legend_panel">
+                        <div id="legend_panel_contents">
+                            <p>Each color in the word cloud corresponds to one of the following Generic Names:</p>
                         </div>
                     </div>
                 </div>

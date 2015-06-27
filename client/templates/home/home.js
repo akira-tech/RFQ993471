@@ -1,4 +1,6 @@
-var generate;
+Meteor.startup(function() {
+    $('html').attr('lang', 'en');
+});
 Template.home.rendered = function () {
     $('#update').click();
 
@@ -50,7 +52,28 @@ Template.home.rendered = function () {
     }
     generate = function(words) {
         tags = words;
-        layout.font(d3.select("#font").property("value")).spiral(d3.select("input[name=spiral]:checked").property("value")), fontSize = d3.scale[d3.select("input[name=scale]:checked").property("value")]().range([14, 80]), tags.length && fontSize.domain([+tags[tags.length - 1].value || 1, +tags[0].value]), complete = 0, statusText.style("display", null), words = [], layout.stop().words(tags.slice(0, max = Math.min(tags.length, 200))).start()
+        var u, i, c, h = Math.PI / 180, d = d3.scale.linear();
+        c = +d3.select("#angle-count").property("value");
+        u = Math.max(-90, Math.min(90, +d3.select("#angle-from").property("value")));
+        i = Math.max(-90, Math.min(90, +d3.select("#angle-to").property("value")));
+
+        d.domain([0, c - 1]).range([u, i]);
+        layout.rotate(function () {
+            return d(~~(Math.random() * c))
+        });
+
+        layout.font(d3.select("#font").property("value")).spiral(d3.select("input[name=spiral]:checked").property("value")), fontSize = d3.scale[d3.select("input[name=scale]:checked").property("value")]().range([14, 60]), tags.length && fontSize.domain([+tags[tags.length - 1].value || 1, +tags[0].value]), complete = 0, statusText.style("display", null), words = [], layout.stop().words(tags.slice(0, max = Math.min(tags.length, 10000))).start();
+        $('#legend_tab').click();
+        var legend = {};
+        $('#legend_panel_contents').empty();
+        for( var i in tags ) {
+            var category = tags[i].key.split( '::' )[0];
+            if( !legend[category] ) {
+                $('#legend_panel_contents').append( '<div class="row"><div class="col-md-2" style="background-color: ' + fill( category ) + '">&nbsp;</div><div class="col-md-10">' + category + '</div></div>' );
+                legend[category] = true;
+            }
+        }
+        $('#settings_tab').click();
     }
     function progress() {
         statusText.text(++complete + "/" + max)
@@ -70,9 +93,9 @@ Template.home.rendered = function () {
                 return t.size + "px"
             }), n.style("font-family",function (t) {
             return t.font
-        }).style("fill",function (t) {
+        }).style("fill",function ( t, i ) {
                 //return fill(t.text.toLowerCase())
-                return fill(t.text.split( '::' )[0])
+                return fill(tags[i].key.split( '::' )[0]);
             }).text(function (t) {
                 return t.text
             });
@@ -267,7 +290,7 @@ Template.home.rendered = function () {
         var w = p.getContext("2d"), M = {archimedean: h, rectangular: d};
         w.fillStyle = "red", w.textAlign = "center", t.cloud = e
     }("undefined" == typeof exports ? d3.layout || (d3.layout = {}) : exports);
-    var fill = d3.scale.category20b(), w = 960, h = 600, words = [], max, scale = 1, complete = 0, keyword = "", tags, fontSize, maxLength = 30, fetcher, statusText = d3.select("#status"), layout = d3.layout.cloud().timeInterval(10).size([w, h]).fontSize(function (t) {
+    var fill = d3.scale.category10(), w = 960, h = 600, words = [], max, scale = 1, complete = 0, keyword = "", tags, fontSize, maxLength = 30, fetcher, statusText = d3.select("#status"), layout = d3.layout.cloud().timeInterval(10).size([w, h]).fontSize(function (t) {
         return fontSize(+t.value)
     }).text(function (t) {
             //return t.key
@@ -277,67 +300,7 @@ Template.home.rendered = function () {
     var form = d3.select("#form").on("submit", function () {
         load(d3.select("#text").property("value")), d3.event.preventDefault()
     });
-    form.selectAll("input[type=number]").on("click.refresh", function () {
-        this.value !== this.defaultValue && (generate(), this.defaultValue = this.value)
-    })/*, form.selectAll("#font").on("change", generate)*/;
     var stopWords = /^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourself|yourselves|he|him|his|himself|she|her|hers|herself|it|its|itself|they|them|their|theirs|themselves|what|which|who|whom|whose|this|that|these|those|am|is|are|was|were|be|been|being|have|has|had|having|do|does|did|doing|will|would|should|can|could|ought|i'm|you're|he's|she's|it's|we're|they're|i've|you've|we've|they've|i'd|you'd|he'd|she'd|we'd|they'd|i'll|you'll|he'll|she'll|we'll|they'll|isn't|aren't|wasn't|weren't|hasn't|haven't|hadn't|doesn't|don't|didn't|won't|wouldn't|shan't|shouldn't|can't|cannot|couldn't|mustn't|let's|that's|who's|what's|here's|there's|when's|where's|why's|how's|a|an|the|and|but|if|or|because|as|until|while|of|at|by|for|with|about|against|between|into|through|during|before|after|above|below|to|from|up|upon|down|in|out|on|off|over|under|again|further|then|once|here|there|when|where|why|how|all|any|both|each|few|more|most|other|some|such|no|nor|not|only|own|same|so|than|too|very|say|says|said|shall)$/, punctuation = new RegExp("[" + unicodePunctuationRe + "]", "g"), wordSeparators = /[ \f\n\r\t\v\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u2028\u2029\u202f\u205f\u3000\u3031-\u3035\u309b\u309c\u30a0\u30fc\uff70]+/g, discard = /^(@|https?:|\/\/)/, htmlTags = /(<[^>]*?>|<script.*?<\/script>|<style.*?<\/style>|<head.*?><\/head>)/g, matchTwitter = /^https?:\/\/([^\.]*\.)?twitter\.com/;
-    /*hashchange("//www.jasondavies.com/wordcloud/about/"), */
-    d3.select("#random-palette").on("click", function () {
-        paletteJSON("http://www.colourlovers.com/api/palettes/random", {}, function (t) {
-            fill.range(t[0].colors), vis.selectAll("text").style("fill", function (t) {
-                return fill(t.text.toLowerCase())
-            })
-        }), d3.event.preventDefault()
-    }), function () {
-        function t() {
-            c = +d3.select("#angle-count").property("value"), u = Math.max(-90, Math.min(90, +d3.select("#angle-from").property("value"))), i = Math.max(-90, Math.min(90, +d3.select("#angle-to").property("value"))), e()
-        }
-
-        function e() {
-            d.domain([0, c - 1]).range([u, i]);
-            var t = l.selectAll("path.angle").data([
-                {startAngle: u * h, endAngle: i * h}
-            ]);
-            t.enter().insert("path", "circle").attr("class", "angle").style("fill", "#fc0"), t.attr("d", f);
-            var o = l.selectAll("line.angle").data(d3.range(c).map(d));
-            o.enter().append("line").attr("class", "angle"), o.exit().remove(), o.attr("transform",function (t) {
-                return"rotate(" + (90 + t) + ")"
-            }).attr("x2", function (t, e) {
-                    return e && e !== c - 1 ? -r : -r - 5
-                });
-            var s = l.selectAll("path.drag").data([u, i]);
-            s.enter().append("path").attr("class", "drag").attr("d", "M-9.5,0L-3,3.5L-3,-3.5Z").call(d3.behavior.drag().on("drag",function (t, o) {
-                t = (o ? i : u) + 90;
-                var s = [-r * Math.cos(t * h), -r * Math.sin(t * h)], l = [d3.event.x, d3.event.y], c = ~~(Math.atan2(n(s, l), a(s, l)) / h);
-                t = Math.max(-90, Math.min(90, t + c - 90)), c = i - u, o ? (i = t, c > 360 ? u += c - 360 : 0 > c && (u = i)) : (u = t, c > 360 ? i += 360 - c : 0 > c && (i = u)), e()
-            }).on("dragend", generate)), s.attr("transform", function (t) {
-                return"rotate(" + (t + 90) + ")translate(-" + r + ")"
-            }), layout.rotate(function () {
-                return d(~~(Math.random() * c))
-            }), d3.select("#angle-count").property("value", c), d3.select("#angle-from").property("value", u), d3.select("#angle-to").property("value", i)
-        }
-
-        function n(t, e) {
-            return t[0] * e[1] - t[1] * e[0]
-        }
-
-        function a(t, e) {
-            return t[0] * e[0] + t[1] * e[1]
-        }
-
-        var r = 40.5, o = 35, s = 20, l = d3.select("#angles").append("svg").attr("width", 2 * (r + o)).attr("height", r + 1.5 * s).append("g").attr("transform", "translate(" + [r + o, r + s] + ")");
-        l.append("path").style("fill", "none").attr("d", ["M", -r, 0, "A", r, r, 0, 0, 1, r, 0].join(" ")), l.append("line").attr("x1", -r - 7).attr("x2", r + 7), l.append("line").attr("y2", -r - 7), l.selectAll("text").data([-90, 0, 90]).enter().append("text").attr("dy",function (t, e) {
-            return 1 === e ? null : ".3em"
-        }).attr("text-anchor",function (t, e) {
-                return["end", "middle", "start"][e]
-            }).attr("transform",function (t) {
-                return t += 90, "rotate(" + t + ")translate(" + -(r + 10) + ")rotate(" + -t + ")translate(2)"
-            }).text(function (t) {
-                return t + "\xb0"
-            });
-        var u, i, c, h = Math.PI / 180, d = d3.scale.linear(), f = d3.svg.arc().innerRadius(0).outerRadius(r);
-        /*d3.selectAll("#angle-count, #angle-from, #angle-to").on("change", t).on("mouseup", t), */t()
-    }();
     $('.loading').show();
 };
 

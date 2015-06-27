@@ -21,8 +21,10 @@ Meteor.startup(function() {
                             for( var k in data ) {
                                 var word = data[k].toLowerCase();
                                 if( !word.match( blacklist ) ) {
-                                    for( var l in res.results[i].openfda.generic_name ) {
-                                        words.push( res.results[i].openfda.generic_name[l] + '::' + word );
+                                    for( var l in res.results[i].openfda.route ) {
+                                        for( var m in res.results[i].openfda.product_type ) {
+                                            words.push( res.results[i].openfda.route[l] + ' ' + res.results[i].openfda.product_type[m] + '::' + word );
+                                        }
                                     }
                                 }
                             }
