@@ -78,6 +78,11 @@ body {
 
 h1 {
 	margin-top : 0;
+    font-size: 30px;
+    display: inline;
+    color: white;
+    text-transform: none;
+    margin-left: 10px;
 }
 
 .stylish-input-group {
@@ -151,8 +156,17 @@ footer {
 		text-transform : none;
 		color : @page-header-color;
 		font-size : @page-header-size;
-		margin-top : 0px;
+		margin : 0px;
+        padding: 0px;
+        font-size: 26px;
 	}
+
+    h3 {
+      font-size: 17px;
+      color: darkgrey;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
 
 	#words {
 		height:430px;
@@ -162,11 +176,22 @@ footer {
 	#settings {
 		margin-bottom : 90px;
 		> div {
-			padding-top : 30px;
 			overflow:auto;
 			font-size : @font16;
-			background:@white;
 		}
+        .settings {
+          padding: 15px 0;
+        }
+        label {
+          font-weight: normal;
+        }
+        .btn {
+          color: @white;
+          background-color: darkgrey;
+        }
+        .btn-primary {
+          background-color: #459fdf;
+        }
 		.page-header {
 			background: @setting-header-color;
 			height:66px;				
@@ -182,7 +207,7 @@ footer {
 		}
 
 		> div:nth-of-type(2) {
-			height:100px;
+			/*height:100px;*/
 			background:@white;			
 			color : @text-color;
 		}

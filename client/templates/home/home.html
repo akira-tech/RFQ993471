@@ -1,123 +1,89 @@
 <template name="home">
-  <div class="template-home" id="home">
-
-    <div id="words">
+    <div class="template-home" id="home">
+        <div id="vis"></div>
+        <form class="form-horizontal">
+            <div id="settings">
+                <div class="row">
+                    <div class="col-md-12 page-header"><h2>Settings</h2></div>
+                </div>
+                <div class="row settings">
+                    <div class="col-md-4 clearfix">
+                        <h3>Spiral</h3>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="spiral" value="archimedean" checked>
+                                Archimedean
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="spiral" value="rectangular">
+                                Rectangular
+                            </label>
+                        </div>
+                        <h3>Font</h3>
+                        <select class="col-md-6" name="font" id="font">
+                            <option value="Arial">Arial</option>
+                            <option value="Impact">Impact</option>
+                            <option value="Times">Times</option>
+                            <option value="Courier">Courier</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 clearfix">
+                        <h3>Scale</h3>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="scale" value="log" checked>
+                                log(n)
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="scale" value="sqrt">
+                                √n
+                            </label>
+                        </div>
+                        <div class="radio disabled">
+                            <label>
+                                <input type="radio" name="scale" value="linear">
+                                n
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 clearfix">
+                        <h3>Orientation</h3>
+                        <div class="form-group">
+                            <label for="angle-from" class="col-md-4 control-label">From</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="from" id="angle-from"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="angle-to" class="col-md-4 control-label">To</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="to" id="angle-to"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="angle-count" class="col-md-4 control-label">Steps</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="steps" id="angle-count"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 page-footer">
+                        <button type="button" id="update" class="btn btn-primary">Update</button>
+                    </div>
+                    <div class="col-md-6 page-footer">
+                        <div class="pull-right">
+                            <a href="#" id="download-svg" class="btn">Download .SVG</a>
+                            <a href="#" id="download-png" class="btn">Download .PNG</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="row" id="settings">
-
-      <div class="page-header">
-         <button type="button" class="btn btn-primary btn-round">STRUCTURE</button>
-         <button type="button" class="btn btn-default btn-round">FONTS & COLORS</button>
-      </div>
-      <div class="form-group">
-        <div class="clearfix">
-          <div class="width90 pull-right">
-            <input type="text" class="col-md-12 input-style">          
-          </div>
-          <div class="edit-label pull-right" >
-            <label>URL</label>
-          </div>
-          
-        </div>
-      </div>
-      
-
-      <div class="form-group">
-        <div class="col-md-12 clearfix">
-          <div class="col-md-4 col-xs-4">
-              <div class="clearfix option-item">
-                <div class="col-md-3 edit-label text-right">
-                Spiral
-                </div>
-                <div class="col-md-9">
-                  <select class=" input-style input-width">
-                    <option value="rectangular">Rectangular</option>
-                  </select>
-                </div>
-              </div>
-           
-              <div class="clearfix option-item">
-                <div class="col-md-3 edit-label text-right">
-                form, 
-                </div>
-                <div class="col-md-9" >
-                    <input type="number" class=" input-style input-width" value="-90">
-                </div>
-              </div>
-
-          </div>
-
-          <div class="col-md-4 col-xs-4">
-              <div class="clearfix option-item">
-                <div class="col-md-3 edit-label text-right">
-                  Scale
-                </div>
-                <div class="col-md-9">
-                  <select class=" input-style input-width">
-                    <option value="rectangular">log n</option>
-                  </select>
-                </div>
-              </div>
-           
-              <div class="clearfix option-item">
-                <div class="col-md-3 edit-label text-right">
-                to,  
-                </div>
-                <div class="col-md-9" >
-                    <input type="number" class=" input-style input-width" value="+90">
-                </div>
-              </div>
-
-          </div>
-          <div class="col-md-4 col-xs-4">
-            Some text about this settings. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi dunt ut labore et dolore mangna aliqua. Ut enim ad minim veniam.
-          </div>
-        </div>        
-      </div>
-
-      <div class="form-group ">
-        <div class="option3 clearfix">
-            
-            <div class="edit-label pull-left">
-              Number of orientations
-            </div>
-
-           <div class="pull-left">
-              <input type="number" class=" input-style input-width" value="4">
-            </div>
-        </div>
-
-        <div class="option3 clearfix">
-              
-          <div class="edit-label text-right pull-left">
-              Number of words
-            </div>
-          <div class="pull-left" >
-              <input type="number" class=" input-style input-width" value="128">              
-            </div>
-            
-            
-          </div>
-
-
-          <div class="col-md-6 clearfix">
-            <div class="btn-group" data-toggle="buttons">
-              <label class="btn btn-primary btn-check">
-                <input type="checkbox" autocomplete = "off">
-                <i class="fa fa-check"></i>
-              </label>
-
-              <label class="check-label"> One word per line </label>
-            </div>
-          </div>
-
-        </div>       
-
-      <div class="page-footer">
-        
-        <button type="button" id="update" class="btn btn-primary">Update</button>
-      </div>
-
-    </div>
-  </div>
 </template>
