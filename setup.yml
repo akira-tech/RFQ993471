@@ -1,0 +1,4 @@
+deployment:
+    server: backend1.example.com
+    user: ec2-user
+    workspace: /var/lib/meteor-shower/myproject
