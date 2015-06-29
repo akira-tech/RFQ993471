@@ -1,0 +1,14 @@
+TASKS:
+- open http://agilebpa.akira-tech.com/
+- Describe what this website could be about in one sentence
+- What is the most popular word in the FDA warning labels?
+- What category of drugs does most frequently occure in?
+- What category of drugs most frequently occurs in the database used in this application?
+- Try different settings for the word cloud, what settings produce the most visually understandable results?
+- Download a picture with the word cloud to your computer. Was it difficult to do?
+
+Summary (rate this site on 1-5 scale (5 is the best mark)):
+- overall look and feel
+- overall usability
+- general comments and suggestions about this website
+

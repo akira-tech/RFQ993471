@@ -1,0 +1,10 @@
+What is the website about? Frequency of words in warning labels
+Most popular word is patients.
+Most common category of drug is the anti-depressent bupropin
+Most common drugs are oral prescription drugs
+Sqrt n was much easier to understand than log(n)
+Easy to download a picture
+
+Look+feel: 2
+usability: 4
+Would be better to subdivide the words by categories (side effects, types of drugs, etc), rather than a general word cloud. 

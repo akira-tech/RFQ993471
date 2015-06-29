@@ -12,17 +12,17 @@
 
 ### Understanding people needs
   Akira identified the following categories of users and their needs:
-  * Researchers - looking for data visualization, ways to export both data and imagery
-  * Developers - looking for data export functionality using one of public standard protocols such as REST
-  * General public - looking for something interactive, entertaining and in general interesting
+  * __Researchers__ - looking for data visualization, ways to export both data and imagery
+  * __Developers__ - looking for data export functionality using one of public standard protocols such as REST
+  * __General public__ - looking for something interactive, entertaining and in general interesting
   Akira included representatives from all 3 groups of people to brainstorm about the idea for the project.
   Discussions with these groups of people lead to the current product functionality and UI design
 
 ### Human-centered design techniques
   Akira selected the following techniques for this project:
-  * Focus group. Please see the minutes from meetings in the documentation folder
-  * Usability testing. The test plan and outcomes are provided in the documentation folder
-  * Participatory design. The engaged groups of users were submitting their feedback in the form of Jira issues as well as informal format that was further converted into Jira issues
+  * __Focus group__. Please see the minutes from meetings in the documentation folder
+  * __Usability testing__. The test plan and outcomes are provided in the documentation folder
+  * __Participatory design__. The engaged groups of users were submitting their feedback in the form of Jira issues as well as informal format that was further converted into Jira issues
 
 ### Design Style Guide
   All stages of the UI design process are illustrated in the doc/design folder.
@@ -44,6 +44,7 @@
   The prototype is deployed in Amazon Web Services (AWS) IaaS.
 
 ### Unit tests
+  Top-right corner
 
 ### Continuous integration system
   Jenkins.
@@ -54,11 +55,11 @@
 
 ### Continuous monitoring
  The following solutions are implemented for the continuous monitoring:
- * AWS CloudWatch - for systems parameters monitoring (CPU Load, disk space etc)
- * AWS ELB in combination with CloudWatch for the website(s) uptime monitoring
- * AWS SNS for event notifications
- * AWS CloudTrail for security and change monitoring
- * CloudCheckr aggregates information from all these systems to complete the continuous monitoring
+ * __AWS CloudWatch__ - for systems parameters monitoring (CPU Load, disk space etc)
+ * __AWS ELB__ in combination with CloudWatch for the website(s) uptime monitoring
+ * __AWS SNS__ for event notifications
+ * __AWS CloudTrail__ for security and change monitoring
+ * __CloudCheckr__ aggregates information from all these systems to complete the continuous monitoring
 
 ### Containerization
   Docker
@@ -68,21 +69,15 @@
   Exposion
 
 ### Installation
-  As a container
-  As a github checkout
+#### As a container
+#### As a github clone (for development purposes)
+  `git clone https://github.com/akira-tech/RFQ993471.git <yourapp>`
+#### Run project
+  `curl https://install.meteor.com/ | sh` # unless you have it already installed, see <a href="https://www.meteor.com/install">https://www.meteor.com/install</a>
+  `cd <yourapp>`
+  `meteor`
 
 ### Licenses
-
-
-- Development
-
-  1. Clone this repo to `<yourapp>`
-
-    `git clone https://github.com/akira-tech/RFQ993471.git <yourapp>`
-
-  2. run project
-    `cd <yourapp>`    
-    `meteor`    
 
 - Deploy 
   
@@ -93,26 +88,5 @@
   2. Deploy project
     `cd <yourapp>`    
     `meteor deloy <site url>`    
-
-- code
-
-  server/methods/api.js
-    - drug_label
-      It's get the data from FDA service url. 
-      The data have duplicated words and have bad words like auxiliary verb. 
-      After we get the data, we remove the bad words and get uique data.
-      Every word has two attributes. key, value.
-      Key is word name, value is frequency of word in sentence.
-      We returned the json object that converted array. 
-
-  client/home/home.js
-
-    It's to show the data visualation using d3 word clud libary.
-    We create the d3 object and called the drug_label api. 
-    after we get the data , it's displayed in screen.
-      
-- test
-  We installed jasmine, vector plugin to the project. 
-  Jasmine is very easy to take the unit test. 
 
 

@@ -1,0 +1,24 @@
+1.
+2. This website provides a visual of the keywords of the various warnings for pharmaceutical products, with each word's sizing signifying its prevalence.
+3. Patients
+4. Oral Human Prescription Drug
+5. Oral Human Prescription Drug
+6. Two Preferred Settings: (Both with Spiral= Archimedean, Font= Arial)
+
+    Scale: sqrt(n), Orientation: From= -60, To= 60, Steps= 4
+    Scale: log(n), Orientation: From= 0, To= 0, Steps= 4
+
+7. Very easy to download
+
+Summary:
+8. Overall Look and Feel: 4
+
+    The presentation and the graphics are very well done. It is nice to look at, and the color scheme is easy on the eyes. The only reason I did not give this a 5 is because the scaling on my web browser could be improved-- for instance, I think that the page would be best scaled in such a way that allows the user to understand immediately upon opening the webpage that there are fields at the bottom to be interacted with. (Provided that the user has access to the tabs at the bottom of the screen)
+
+
+9. Overall usability: 3
+
+    I failed to understand that the purpose of the Settings tab was to change the format/layout/appearance of the word cloud. Provided that the finished webpage is intended to have the Settings tab interacted with by the intended users, there needs to be clearer indication that the purpose of the tab is for changing the layout/format/appearance of the word cloud, such as by incorporating one of those words (or a derivative of one of the words) within at least one or more locations of the Settings tab. For instance, it would be beneficial to replace the word "Spiral" with either "Format" or "Layout". Spiral sounds more like it could have been one of the selection choices, rather than the heading for the choices.
+    Regardless, based on my assumption of what the purpose is for this webpage, I think that it would be optimal to exclude such capabilities in the finished version of the webpage. Such updates to the visuals are not necessary for the user to have access to, and in fact, are overwhelmingly ambiguous in terms of functionality.
+    Based on the assumption that users of the webpage are reading this in English, it is most natural for the flow of one's gaze to go from left to right. In the event that someone was to make changes to the word cloud, he/she would most likely start off with the fields on the left, and move sequentially to the right. Considering this, the placement of the 'Update' button is not strategic. It should be located at a place that would flow logically, so that the button is available directly near where the last Settings change would be made (such as where the download buttons are located).
+    I think that the Legend tab is more important than the Settings tab. The fact that there is a legend signifies that the word cloud is in some way representative of some data, rather than just a random grouping of words and colors. If the Settings Tab were to remain in the final version, the Legend Tab should be prioritized as the default, in place of the Settings Tab. Or, depending on the final settings chosen as the defaults for the word cloud, you may want to consider having the legend visible at all times directly on the page, such as at the top/bottom-left or top/bottom-right hand corner of the light blue panel of the page within the vicinity of the word cloud.
