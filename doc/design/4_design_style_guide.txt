@@ -1,0 +1,27 @@
+﻿DESCRIPTION FOR DESIGN:
+1) All elements have all conditions: standart, hover/focus, active
+2) Select element also have reveal condition
+3) All inset shadows have "normal" render setting and 100% opacity
+
+MAIN ELEMENTS:
+main font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+other fonts: no
+
+12 grid width: 940px
+site width: 980px
+
+header background: #7196c0
+body background: #e7eef5
+
+settings box width: 980px
+settings box grid padding left and right: 20px
+settings box content width: 940px 12grid
+settings box header backround: #f3f7fa
+settings box border top: 1px solid #f9fbfd
+settings box border bottom: 1px solid #e1e9f2
+settings box content background: #fff
+settings box hr: 1px #e9eff5
+settings box button block background: #f7fafc
+settings box font color: #a4acb5
+
+footer background: #7b90ab
