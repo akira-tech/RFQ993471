@@ -1,22 +1,22 @@
 @color : #e6e6e6;
-@header-color : #799cc5;
-@footer-color : #7b90ab;
+@header-color : #5b728e;
+@footer-color : #5b728e;
 @footer-height : 148px;
 @background-color : #e7eef5;
 @logo-title : 22px;
 @font12  : 12px;
 @white : #fff;
-@banner-color : #89a6d2;
+@banner-color : #4673b8;
 @page-header-color : #687a8a;
 @page-header-size : 32px;
 @setting-header-color : #f3f7fa;
-@btn-color : #459fdf;
+@btn-color : #1d6fa9;
 @input-border-color : #dbe5ef;
 @font16 : 16px;
-@text-color : #a4acb5;
+@text-color : #333333;
 @option2-color : #fbfcfd;
 @selection-color : #77b7e5;
-@footer-text-color : #dce7f5;
+@footer-text-color : #f4f7fc;
 @user-color : #6181a7;
 
 body {
@@ -163,7 +163,7 @@ footer {
 
     h3 {
       font-size: 17px;
-      color: darkgrey;
+      color: #333333;
       margin-top: 10px;
       margin-bottom: 5px;
     }
@@ -199,10 +199,10 @@ footer {
         }
         .btn {
           color: @white;
-          background-color: darkgrey;
+          background-color: #707070;
         }
         .btn-primary {
-          background-color: #459fdf;
+          background-color: @btn-color;
         }
 		.page-header {
 			background: @setting-header-color;
@@ -327,4 +327,30 @@ footer {
 	font-weight : 100;
 	font-size : @font16;
 
+}
+
+.visuallyhidden {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px); /* for IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px ;
+  overflow: hidden;
+}
+
+.modal-body a {
+  color: #984814;
+  text-decoration: underline;
+}
+
+legend {
+  margin-bottom: 10px;
+  padding-top: 20px;
+}
+
+h2.modal-title {
+  font-size: 18px;
 }

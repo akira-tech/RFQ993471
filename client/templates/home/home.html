@@ -1,13 +1,16 @@
 <template name="home">
     <div class="template-home" id="home">
+        <div class="visuallyhidden">
+            <table id="words-508"><tr><th>Word</th><th>Category</th><th>Rank</th></tr></table>
+        </div>
         <div id="vis"></div>
         <form class="form-horizontal">
             <div id="settings">
                 <div class="row">
                     <div class="col-md-12 page-header">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#settings_panel" aria-controls="home" role="tab" data-toggle="tab" id="settings_tab"><h2>Settings</h2></a></li>
                             <li role="presentation"><a href="#legend_panel" aria-controls="profile" role="tab" data-toggle="tab" id="legend_tab"><h2>Legend</h2></a></li>
+                            <li role="presentation" class="active"><a href="#settings_panel" aria-controls="home" role="tab" data-toggle="tab" id="settings_tab"><h2>Settings</h2></a></li>
                         </ul>
                     </div>
                 </div>
@@ -15,82 +18,94 @@
                     <div role="tabpanel" class="tab-pane active" id="settings_panel">
                         <div class="settings row">
                             <div class="col-md-4 clearfix">
-                                <h3>Spiral</h3>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="spiral" value="archimedean" checked>
-                                        Archimedean
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="spiral" value="rectangular">
-                                        Rectangular
-                                    </label>
-                                </div>
-                                <label>
-                                    <h3>Font</h3>
-                                    <select class="col-md-6 form-control" name="font" id="font">
-                                        <option value="Arial">Arial</option>
-                                        <option value="Impact">Impact</option>
-                                        <option value="Times">Times</option>
-                                        <option value="Courier">Courier</option>
-                                    </select>
-                                </label>
+                                <fieldset>
+                                    <legend>Layout Type</legend>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="spiral" value="archimedean">
+                                            Archimedean
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="spiral" value="rectangular" checked>
+                                            Rectangular
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Font</legend>
+                                    <div class="form-group">
+                                        <label for="font" class="col-md-4 control-label">Typeface</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" name="font" id="font">
+                                                <option value="Arial">Arial</option>
+                                                <option value="Impact">Impact</option>
+                                                <option value="Times">Times</option>
+                                                <option value="Courier">Courier</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
                             <div class="col-md-4 clearfix">
-                                <h3>Scale</h3>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="scale" value="log" checked>
-                                        log(n)
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="scale" value="sqrt">
-                                        √n
-                                    </label>
-                                </div>
-                                <div class="radio disabled">
-                                    <label>
-                                        <input type="radio" name="scale" value="linear">
-                                        n
-                                    </label>
-                                </div>
+                                <fieldset>
+                                    <legend>Word Size Scale Type</legend>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="scale" value="log">
+                                            log(n)
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="scale" value="sqrt" checked>
+                                            √n
+                                        </label>
+                                    </div>
+                                    <div class="radio disabled">
+                                        <label>
+                                            <input type="radio" name="scale" value="linear">
+                                            n
+                                        </label>
+                                    </div>
+                                </fieldset>
                             </div>
                             <div class="col-md-4 clearfix">
-                                <h3>Orientation</h3>
-                                <div class="form-group">
-                                    <label for="angle-from" class="col-md-4 control-label">From</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="text" name="from" id="angle-from" value="-90"/>
+                                <fieldset>
+                                    <legend>Orientation</legend>
+                                    <div class="form-group">
+                                        <label for="angle-from" class="col-md-4 control-label">From</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" name="from" id="angle-from" value="-60"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="angle-to" class="col-md-4 control-label">To</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="text" name="to" id="angle-to" value="90"/>
+                                    <div class="form-group">
+                                        <label for="angle-to" class="col-md-4 control-label">To</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" name="to" id="angle-to" value="60"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="angle-count" class="col-md-4 control-label">Steps</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="text" name="steps" id="angle-count" value="4"/>
+                                    <div class="form-group">
+                                        <label for="angle-count" class="col-md-4 control-label">Steps</label>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" name="steps" id="angle-count" value="4"/>
+                                        </div>
                                     </div>
-                                </div>
+                                </fieldset>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 page-footer">
                                 <div class="pull-left">
-                                    <button type="button" id="update" class="btn btn-primary">Update</button>
+                                    <a href="#" id="download-svg" class="btn">Download .SVG</a>
+                                    <a href="#" id="download-png" class="btn">Download .PNG</a>
                                 </div>
                             </div>
                             <div class="col-md-6 page-footer">
                                 <div class="pull-right">
-                                    <a href="#" id="download-svg" class="btn">Download .SVG</a>
-                                    <a href="#" id="download-png" class="btn">Download .PNG</a>
+                                    <button type="button" id="intro_btn" class="btn" data-toggle="modal" data-target="#intro">Help</button>
+                                    <button type="button" id="update_btn" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -104,4 +119,25 @@
             </div>
         </form>
     </div>
+    <div class="modal fade" id="intro" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Introducing Akira Technologies Agile BPA PoC</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Thank you for visiting Akira Agile CPB RQF prototype.</p>
+                    <p>In this prototype we demonstrate our ability to develop complex IT solutions using cutting-edge technologies and Agile approach.</p>
+                    <p>This application uses data retrieved from open.fda.gov to visualize the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.</p>
+                    <p>There are some interesting technologies behind this simple prototype and if you are looking for more information about what run this web application please <a href="https://github.com/akira-tech/RFQ993471">visit Akira GitHub Account</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </template>

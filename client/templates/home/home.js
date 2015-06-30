@@ -9,7 +9,8 @@ var fill,
     layout,
     svg,
     background,
-    vis;
+    vis,
+    show_intro = false;
 
 var generate = function (words) {
     tags = words;
@@ -26,7 +27,7 @@ var generate = function (words) {
     layout
         .font(d3.select("#font").property("value"))
         .spiral(d3.select("input[name=spiral]:checked").property("value"));
-    fontSize = d3.scale[d3.select("input[name=scale]:checked").property("value")]().range([14, 60]);
+    fontSize = d3.scale[d3.select("input[name=scale]:checked").property("value")]().range([13, 80]);
     tags.length && fontSize.domain([+tags[tags.length - 1].value || 1, +tags[0].value]);
     words = [];
     layout
@@ -45,7 +46,13 @@ var generate = function (words) {
             legend[category] = true;
         }
     }
-    $('#settings_tab').click();
+    $('#words-508').empty();
+    $('#words-508').append('<tr><th>Word</th><th>Category</th><th>Rank</th></tr>');
+    for (var i in tags) {
+        var w = tags[i].key.split('::');
+        $('#words-508').append('<tr><td>' + w[1] + '</td><td>' + w[0] + '</td><td>' + ( i + 1 ) + '</td></tr>');
+    }
+    //$('#settings_tab').click();
 };
 
 function draw(t, e) {
@@ -75,6 +82,12 @@ function draw(t, e) {
 
 Meteor.startup(function() {
     $('html').attr('lang', 'en');
+    console.log(document.cookie);
+    if (!document.cookie.match(/splash_4=/)) {
+        console.log( 'Showing intro' );
+        show_intro = true;
+        document.cookie = "splash_4=ack";
+    }
 });
 
 Template.home.rendered = function () {
@@ -98,17 +111,24 @@ Template.home.rendered = function () {
         .select("#vis")
         .append("svg")
         .attr("width", w)
-        .attr("height", h);
+        .attr("height", h)
+        .attr("role", "img")
+        .attr("aria-label", "Word cloud representing warning prevalence by route and product type");
+    svg.append( "title").text("Warning prevalence by route and product type");
+    svg.append( "desc").text("Word cloud representing warning prevalence by route and product type");
     background = svg
         .append("g");
     vis = svg
         .append("g")
         .attr("transform", "translate(" + [w >> 1, h >> 1] + ")");
-    $('#update').click();
+    $('#update_btn').click();
+    if( show_intro ) {
+        $('#intro_btn').click();
+    }
 };
 
 Template.home.events({
-    'click #update': function (evt, template) {
+    'click #update_btn': function (evt, template) {
         $('.loading').show();
         Meteor.call('drug_label', 200, function (error, res) {
             if ( error ) {

@@ -89,4 +89,10 @@
     `cd <yourapp>`    
     `meteor deloy <site url>`    
 
+### Other Notes
 
+#### 508 Compliance
+
+Just like with other Akira solutions we implemented 508 compliance in this small app.
+You have review the compliance with <a href="https://wave.webaim.org/toolbar/">Webaim WAVE Toolbar</a> (please do not use the online version).
+The results of validation are shown below:
