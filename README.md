@@ -67,6 +67,10 @@
 ### REST API
   consumption
   Exposion
+  
+### Documentation
+#### Installation
+#### User
 
 ### Installation
 #### As a container
