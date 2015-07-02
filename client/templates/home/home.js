@@ -1,6 +1,9 @@
 var fill,
-    w = 960,
-    h = 600,
+    orig_w = 960,
+    orig_h = 600,
+    orig_scale = orig_w / orig_h,
+    w = orig_w,
+    h = orig_h,
     words = [],
     max,
     scale = 1,
@@ -36,7 +39,6 @@ var generate = function (words) {
         .start();
 
     // generate legend
-    $('#legend_tab').click();
     var legend = {};
     $('#legend_panel_contents').empty();
     for (var i in tags) {
@@ -50,13 +52,14 @@ var generate = function (words) {
     $('#words-508').append('<tr><th>Word</th><th>Category</th><th>Rank</th></tr>');
     for (var i in tags) {
         var w = tags[i].key.split('::');
-        $('#words-508').append('<tr><td>' + w[1] + '</td><td>' + w[0] + '</td><td>' + ( i + 1 ) + '</td></tr>');
+        $('#words-508').append('<tr><td>' + w[1] + '</td><td>' + w[0] + '</td><td>' + ( parseInt(i) + 1 ) + '</td></tr>');
     }
     //$('#settings_tab').click();
 };
 
 function draw(t, e) {
-    scale = e ? Math.min(w / Math.abs(e[1].x - w / 2), w / Math.abs(e[0].x - w / 2), h / Math.abs(e[1].y - h / 2), h / Math.abs(e[0].y - h / 2)) / 2 : 1, words = t;
+    scale = w / orig_w;
+    words = t;
     var n = vis.selectAll("text").data(words);
     n.transition().duration(1e3).attr("transform",function (t) {
         return"translate(" + [t.x, t.y] + ")rotate(" + t.rotate + ")"
@@ -80,17 +83,16 @@ function draw(t, e) {
 }
 
 
-Meteor.startup(function() {
+Meteor.startup(function () {
     $('html').attr('lang', 'en');
-    console.log(document.cookie);
     if (!document.cookie.match(/splash_4=/)) {
-        console.log( 'Showing intro' );
         show_intro = true;
         document.cookie = "splash_4=ack";
     }
 });
 
 Template.home.rendered = function () {
+    $('#legend_tab').click();
     $('.loading').show();
     fill = d3
         .scale
@@ -110,19 +112,30 @@ Template.home.rendered = function () {
     svg = d3
         .select("#vis")
         .append("svg")
+        .attr("id", "vis_svg")
         .attr("width", w)
         .attr("height", h)
         .attr("role", "img")
         .attr("aria-label", "Word cloud representing warning prevalence by route and product type");
-    svg.append( "title").text("Warning prevalence by route and product type");
-    svg.append( "desc").text("Word cloud representing warning prevalence by route and product type");
+    svg.append("title").text("Warning prevalence by route and product type");
+    svg.append("desc").text("Word cloud representing warning prevalence by route and product type");
     background = svg
         .append("g");
     vis = svg
         .append("g")
         .attr("transform", "translate(" + [w >> 1, h >> 1] + ")");
-    $('#update_btn').click();
-    if( show_intro ) {
+    $(window).on("resize", function () {
+        var jq_svg = $('#vis_svg');
+        var targetWidth = jq_svg.parent().width();
+        jq_svg.attr("width", targetWidth);
+        jq_svg.attr("height", targetWidth / orig_scale);
+        jq_svg.parent().height(targetWidth / orig_scale);
+        w = targetWidth;
+        h = targetWidth / orig_scale;
+        $('#update_btn').click();
+    });
+    $(window).resize();
+    if (show_intro) {
         $('#intro_btn').click();
     }
 };
@@ -131,22 +144,22 @@ Template.home.events({
     'click #update_btn': function (evt, template) {
         $('.loading').show();
         Meteor.call('drug_label', 200, function (error, res) {
-            if ( error ) {
-                console.log( error );
+            if (error) {
+                console.log(error);
             } else {
                 generate(res);
             }
             $('.loading').hide();
         });
     },
-    'click #download-png': function() {
+    'click #download-png': function () {
         var t = document.createElement("canvas");
         var e = t.getContext("2d");
         t.width = w;
         t.height = h;
         e.translate(w >> 1, h >> 1);
         e.scale(scale, scale);
-        words.forEach(function (t,i) {
+        words.forEach(function (t, i) {
             e.save();
             e.translate(t.x, t.y);
             e.rotate(t.rotate * Math.PI / 180);

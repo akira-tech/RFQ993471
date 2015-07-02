@@ -7,4 +7,6 @@ Package.describe({
 
 Package.onUse(function (api) {
 	api.use("coffeescript", ["client", "server"]);
+    api.add_files("tests/jasmine/client/integration/ui.js",["client"]);
+    api.add_files("tests/jasmine/client/unit/basic/logic.js",["client"]);
 });

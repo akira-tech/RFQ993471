@@ -44,7 +44,14 @@
   The prototype is deployed in Amazon Web Services (AWS) IaaS.
 
 ### Unit tests
+  For the unit tests combination of velocity and jasmine are used. All tests are located in tests/jasmine folder and test both the client and server sides of the application.
+  The following command runs the tests:
+  npm install -g phantomjs
+  JASMINE_BROWSER=PhantomJS meteor --test --release velocity:METEOR@1.1.0.2_3 --once
+  `JASMINE_BROWSER=PhantomJS meteor --test --once`
   Top-right corner
+
+
 
 ### Continuous integration system
   Jenkins.
@@ -65,8 +72,8 @@
   Docker
 
 ### REST API
-  consumption
-  Exposion
+  consumption: https://api.fda.gov/drug/label.json?api_key=<AKIRA_API_KEY>&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100
+  Exposion: http://agilebpa.akira-tech.com/words-frequency.json
   
 ### Documentation
 #### Installation
@@ -80,6 +87,10 @@
   `curl https://install.meteor.com/ | sh` # unless you have it already installed, see <a href="https://www.meteor.com/install">https://www.meteor.com/install</a>
   `cd <yourapp>`
   `meteor`
+  `meteor --production run android`
+  `meteor --production run ios`
+  `meteor --production run`
+
 
 ### Licenses
 
