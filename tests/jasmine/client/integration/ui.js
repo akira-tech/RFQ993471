@@ -13,7 +13,6 @@ if (navigator.userAgent.indexOf("PhantomJS") > 0) {
 function waitForSelector(selector, successCallback) {
     var checkInterval = 500;
     var timeout = 20000;
-    console.log( "----------------" );
     var elapsedTime = 0,
         intervalID = Meteor.setInterval(function () {
             elapsedTime += checkInterval;
@@ -29,7 +28,6 @@ function waitForSelector(selector, successCallback) {
 
 describe("Layout", function () {
     it("Displays correct header", function () {
-        console.log( "0000" );
         expect($(".logo h1").text()).toEqual('Warning Prevalence by Route and Product Type');
     });
     it("Shows Legend tab contents by default", function () {

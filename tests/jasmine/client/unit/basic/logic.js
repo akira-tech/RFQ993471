@@ -8,11 +8,12 @@ describe("Logic", function () {
         MeteorStubs.uninstall();
     });
 
-    it("Calls startup", function () {
-        console.log( "TEST ==================== #$%#$%#$%#$%#%$" );
-        spyOn(Meteor, "startup").and.callThrough();
-        Meteor.startup();
-        expect(Meteor.startup).toHaveBeenCalled();
+    it("Template.home", function () {
+        spyOn(Template.home, "rendered").and.callThrough();
+        Template.home.rendered();
+        expect(Template.home.rendered).toHaveBeenCalled();
+        expect(generate).toHaveBeenCalled();
+
         /*
         expect( orig_w ).toEqual( 960 );
         expect( orig_h ).toEqual( 600 );

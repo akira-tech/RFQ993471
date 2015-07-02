@@ -143,14 +143,30 @@ Template.home.rendered = function () {
 Template.home.events({
     'click #update_btn': function (evt, template) {
         $('.loading').show();
-        Meteor.call('drug_label', 200, function (error, res) {
-            if (error) {
-                console.log(error);
-            } else {
-                generate(res);
-            }
-            $('.loading').hide();
-        });
+        var count = 200;
+        var cache_entry = CacheList.findOne({}, {sort: {createdAt: -1}});
+        var data;
+        if (cache_entry && cache_entry.data) {
+            console.log( "Using cached value" );
+            data = cache_entry.data;
+        } else {
+            console.log("Using non-cached value");
+            Meteor.call('drug_label', count, function (error, res) {
+                if (error) {
+                    console.log(error);
+                    data = [{key:'No data found', value: 50}];
+                } else {
+                    CacheList.insert({
+                        count: count,
+                        data: res
+                    }); // do not care about cache here
+                    data = res;
+                }
+                $('.loading').hide();
+            });
+        }
+        $('.loading').hide();
+        generate(data);
     },
     'click #download-png': function () {
         var t = document.createElement("canvas");
@@ -174,4 +190,8 @@ Template.home.events({
     'click #download-svg': function () {
         window.open("data:image/svg+xml;charset=utf-8;base64," + btoa(unescape(encodeURIComponent(svg.attr("version", "1.1").attr("xmlns", "http://www.w3.org/2000/svg").node().parentNode.innerHTML))));
     }
+});
+
+Tracker.autorun(function () {
+    Meteor.subscribe("CacheList");
 });
