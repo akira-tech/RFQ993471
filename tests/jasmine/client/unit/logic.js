@@ -1,6 +1,7 @@
 describe("Logic", function () {
 
     beforeEach(function () {
+        console.log( "TEST" );
         MeteorStubs.install();
     });
 
@@ -13,7 +14,7 @@ describe("Logic", function () {
         Template.home.rendered();
         expect(Template.home.rendered).toHaveBeenCalled();
         expect(generate).toHaveBeenCalled();
-
+blah
         /*
         expect( orig_w ).toEqual( 960 );
         expect( orig_h ).toEqual( 600 );

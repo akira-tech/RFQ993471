@@ -33,16 +33,5 @@ describe("Layout", function () {
     it("Shows Legend tab contents by default", function () {
         expect($("a[role='tab'][aria-expanded='true'] h2").text()).toEqual('Legend');
     });
-    it("ORAL HUMAN PRESCRIPTION DRUG is the most popular category", function (cb) {
-        waitForSelector("#legend_panel_contents .row .col-md-10", function () {
-            expect($("#legend_panel_contents .row .col-md-10")[0].innerText).toEqual('ORAL HUMAN PRESCRIPTION DRUG');
-            cb();
-        });
-    }, 20000);
-    it("'Patients' is the most popular word", function (cb) {
-        waitForSelector("#vis svg g text:first-child", function () {
-            expect($("#vis svg g text:first-child").text()).toEqual('patients');
-            cb();
-        });
-    }, 20000);
+    // Integration tests arenot requested, but this is a good place for them anyway
 });
