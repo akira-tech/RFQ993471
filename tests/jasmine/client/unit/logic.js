@@ -15,7 +15,6 @@ describe("Logic", function () {
         Template.home.rendered();
         expect(Template.home.rendered).toHaveBeenCalled();
         expect(generate).toHaveBeenCalled();
-blah
         expect( orig_w ).toEqual( 960 );
         expect( orig_h ).toEqual( 600 );
         expect( w ).toEqual( 960 );
