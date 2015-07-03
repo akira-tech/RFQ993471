@@ -25,5 +25,4 @@ aldeed:autoform
 d3
 sanjo:jasmine
 mike:mocha
-velocity:console-reporter
 velocity:html-reporter

@@ -47,9 +47,11 @@
   For the unit tests combination of velocity and jasmine are used. All tests are located in tests/jasmine folder and test both the client and server sides of the application.
   The following command runs the tests:
   npm install -g phantomjs
-  JASMINE_BROWSER=PhantomJS meteor --test --release velocity:METEOR@1.1.0.2_3 --once
-  `JASMINE_BROWSER=PhantomJS meteor --test --once`
+  //JASMINE_BROWSER=PhantomJS meteor --test --release velocity:METEOR@1.1.0.2_3 --once
+  //`JASMINE_BROWSER=PhantomJS meteor --test --once`
+  meteor --test --release velocity:METEOR@1.1.0.2_3 --once - this runs server-side tests
   Top-right corner
+  error code 100 - rm .meteor/local/db/mongodb.lock, kill existing process, meteor reset
 
 
 

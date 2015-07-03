@@ -90,7 +90,6 @@ url@1.0.4
 useraccounts:bootstrap@1.11.1
 useraccounts:core@1.11.1
 velocity:chokidar@1.0.3_1
-velocity:console-reporter@0.1.1
 velocity:core@0.6.5
 velocity:html-reporter@0.6.2
 velocity:meteor-internals@1.1.0_7
