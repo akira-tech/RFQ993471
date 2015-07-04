@@ -68,10 +68,8 @@ Meteor.methods({
 });
 
 Meteor.startup(function () {
-
     Meteor.publish("CacheList", function () {
         return CacheList.find();
     });
-
 });
 
