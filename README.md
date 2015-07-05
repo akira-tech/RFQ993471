@@ -66,15 +66,19 @@
   The prototype is deployed in Amazon Web Services (AWS) IaaS.
   The whole system runs on 3 EC2 instances:
   * __control server__ - runs continous integration, docker, ansible
-  * __identical t1.micro instances__ - running containers with the application
+  * __two app servers__ - running containers with the application
   * __AWS ELB__ - balancing load, providing redundancy and uptime monitoring
+  On every code push to Github Jenkins pulls the new code using hooks and runs unit tests. Upon successful tests run it calls Ansible to build Docker image, push it to the Docker Hub and then deploy from Docker Hub to the two app servers in series.
 
 ### Unit tests
   We initially used combination of meteor+velocity_jasmine for different types of tests, but unfortunately this combination doesn't work well in headless environments, so we switched to pure jasmine.
-  [The basic set unit tests](/tests) is the part of the github repository.
+  [The basic set of unit tests](/tests) is the part of the github repository.
   In order to run the tests please make sure you have underscore and fs installed (which [require npm and node.js](https://nodejs.org/download/)):
+
   `npm install -g underscore fs`
+
   You can runt he tests with the following command in the cloned repository:
+
    `cd tests; jasmine`
 
 ### Continuous integration system
@@ -97,7 +101,9 @@
 ### Containerization
   We use Docker as the tool for building images and running them in containers.
   You can run the application on a system with installed Docker using the following command:
+
   `docker run -d -p 5000:3000 akiratech/rfq993471`
+
   In 2-3 minutes the application will become available at http://localhost:5000
 
 ### REST API
@@ -105,51 +111,63 @@
   * [consuming open.fda.gov data](https://api.fda.gov/drug/label.json?api_key=AKIRA_API_KEY&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100)
   * [exposing http://agilebpa.akira-tech.com/words-frequency.json](http://agilebpa.akira-tech.com/words-frequency.json)
 
-### Installation
+### Installation / Running the app
   There are multiple ways to install and run the application
 
 #### As a github clone
   This approach requires meteor installed on your system. You can do it by running
+
   `curl https://install.meteor.com | /bin/sh`
+
   After installing meteor please run
+  
   `git clone https://github.com/akira-tech/RFQ993471.git`
+  
   `cd RFQ993471`
+  
   `meteor --production run --port 5000`
 
 ##### As an iOS app
   This only works on a mac and requires the repository to be cloned as described above:
+  
   `meteor install-sdk ios`
+  
   `meteor add-platform ios`
+  
   `meteor run ios`
+  
   This will run the application in the emulator. If you wnat to run it on a physical device please run
+  
   `meteor run ios-device`
+  
   and deploy the app from XCode
 
 ##### As an Android App
   This requires the repository to be cloned as described above
   Run the following commands:
+  
   `meteor install-sdk android`
+  
   `meteor add-platform android`
+  
   `meteor run android`
+  
   This will run the application in the emulator. If you wnat to run it on a physical device please run
+  
   `meteor run android-device`
 
 #### As a docker container
   You need to first follow the [Docker installation instructions](https://docs.docker.com/installation/). Then you can run the following command:
+
   `docker run -d -p 5000:3000 akiratech/rfq993471`
+
   In 2-3 minutes the application will become available at http://localhost:5000
 
-### Installation
-#### As a container
-#### As a github clone (for development purposes)
-  `git clone https://github.com/akira-tech/RFQ993471.git <yourapp>`
-#### Run project
-  `curl https://install.meteor.com/ | sh` # unless you have it already installed, see <a href="https://www.meteor.com/install">https://www.meteor.com/install</a>
-  `cd <yourapp>`
-  `meteor`
-  `meteor --production run android`
-  `meteor --production run ios`
-  `meteor --production run`
+  You can also get shell access to the container as
+
+  `sudo docker exec -i -t CONTAINER_ID bash`
+
+  (using docker attach is not too helpful here)
 
 ### Licenses
 
