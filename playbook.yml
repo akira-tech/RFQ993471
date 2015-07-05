@@ -1,0 +1,15 @@
+---
+- hosts: app_servers
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+    - name: AgileBPA PoC Container
+      docker:
+        name: rfq993471
+        image: akiratech/rfq993471
+        state: reloaded
+        pull: always
+        ports: 3000:3000
+        count: 2
+        command: sleep 1d

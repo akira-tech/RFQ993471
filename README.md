@@ -68,7 +68,7 @@
   * __control server__ - runs continous integration, docker, ansible
   * __two app servers__ - running containers with the application
   * __AWS ELB__ - balancing load, providing redundancy and uptime monitoring
-  On every code push to Github Jenkins pulls the new code using hooks and runs unit tests. Upon successful tests run it calls Ansible to build Docker image, push it to the Docker Hub and then deploy from Docker Hub to the two app servers in series.
+  On every code push to Github Jenkins pulls the new code using hooks and runs unit tests. Upon successful tests run it calls Docker to build image, push it to the Docker Hub and then deploy from Docker Hub to the two app servers in series using Ansible.
 
 ### Unit tests
   We initially used combination of meteor+velocity_jasmine for different types of tests, but unfortunately this combination doesn't work well in headless environments, so we switched to pure jasmine.
@@ -84,7 +84,7 @@
 ### Continuous integration system
   We use Jenkins as the continuous integration system. The server is publicly available as [http://agilebpa.akira-tech.com:8080/](http://agilebpa.akira-tech.com:8080/)
   [The CI system screenshots](.doc.continuous_integration) are also available in github.
-  Upon succesful build Jenkins runs ansible (via plugin) to create docker image, push it to Docker HUB and then deploy to the two application servers.
+  Upon successful build Jenkins runs Ansible (via plugin) to create docker image, push it to Docker HUB and then deploy to the two application servers.
 
 ### Configuration management
   For the configuration management and container orchestration we use Ansible+Docker.
