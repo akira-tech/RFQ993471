@@ -1,0 +1,36 @@
+1.
+2. This website provides a visual of the keywords of the various warnings for pharmaceutical products, with each word's sizing signifying its prevalence, and the purpose of the website is to show an example of the kinds of technological solutions that Akira can provide.
+3. (same) Patients
+4. (same) Oral Human Prescription Drug
+5. (same) Oral Human Prescription Drug
+6. Preferred Settings:
+
+    Layout type= Rectangular,
+    Font= Arial,
+    Scale: sqrt(n),
+    Orientation: From= -60, To= 60, Steps= 4
+
+*Note: I saw you changed the default. I support the choice of Rectangular for the layout, and agree with your choice in using it rather than my original suggestion. If you were to refresh the page (or click the update button) to refresh the image, the placement of each work within the cloud changes (as I'm sure you are already aware). I really like this feature, and find the new defaults to be the best choice: The Rectangular layout is definitely the most consistent for generating visually appealing images (with respect to its layout). It looks really great, and the changes made really improve the overall appearance.
+
+7. (same) Very easy to download
+
+Summary:
+8. Overall Look and Feel: 5
+
+    As stated before, I commend you on the chosen color scheme. It is very nice to look at. I find the use of a word cloud as symbolic of graph-like values of data is an excellent means of presenting the level of ingenuity, creativity, and practicality that you (and Akira) can offer clients. Now that the default tab shows the legend upon opening the page, I no longer experience the potential problems that I had raised in my first test.
+
+
+9. Overall usability: 5
+
+    The placement of the update button significantly increases the usability of the Settings functionality. It is now clear that each of the fields within the Settings tab correlate to the update button due to both the button's location and its color contrasting with the color of all the other buttons.
+    The change from "Spiral" to "Layout Type" also greatly increases the usability of the Settings tab. It is now evident to me what the purpose of the Settings tab is, and upon viewing the page, I no longer found access to such functionality overwhelming.
+    I really enjoyed the addition of the help button. First, I like that you matched the color of the button with that of the download buttons. It shows that the main purpose of the Settings tab includes the use of the Update button, and that the other 3 buttons are additional features.
+    The Legend tab as the default really improves the user's understanding. I think that was a really significant and necessary change.
+
+10. Comments, Suggestions:
+
+    What are you thoughts on the following:
+    While the Legend tab is best suited as the default when initially going to the webpage, it may be best to leave the Settings tab up as the default view upon clicking the update button. I think that the change from Settings to Legend is a little harsh. Considering that someone updating the settings may want to play around and change the settings more than once to compare the word cloud's appearance, it may be useful to stay within the Settings tab in such a scenario.
+    The Help button is fantastic. It looks great and I really like the location of it, especially since it is next to the update button. But you may want to have the help button available either in an additional place (i.e. in the same location within the Legend tab as it is in the Settings tab) or having it in a universal, less exclusive location outside of the tabs. Either way, such a change isn't entirely necessary, but is worth playing around with if you intend to do any more fine tuning.
+
+

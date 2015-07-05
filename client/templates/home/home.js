@@ -149,6 +149,8 @@ Template.home.events({
         if (cache_entry && cache_entry.data) {
             console.log( "Using cached value" );
             data = cache_entry.data;
+            $('.loading').hide();
+            generate(data);
         } else {
             console.log("Using non-cached value");
             Meteor.call('drug_label', count, function (error, res) {
@@ -156,17 +158,16 @@ Template.home.events({
                     console.log(error);
                     data = [{key:'No data found', value: 50}];
                 } else {
-                    CacheList.insert({
+                    CacheList.insert({ // let's keep track of how it was changing, insert, not update
                         count: count,
                         data: res
                     }); // do not care about cache here
                     data = res;
                 }
                 $('.loading').hide();
+                generate(data);
             });
         }
-        $('.loading').hide();
-        generate(data);
     },
     'click #download-png': function () {
         var t = document.createElement("canvas");
