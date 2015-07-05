@@ -6,10 +6,9 @@
   tasks:
     - name: AgileBPA PoC Container
       docker:
-        name: rfq993471
         image: akiratech/rfq993471
         state: reloaded
         pull: always
         ports: 3000:3000
-        count: 2
+        count: 1
         command: sleep 1d
