@@ -143,12 +143,10 @@ Template.home.events({
         var cache_entry = CacheList.findOne({}, {sort: {createdAt: -1}});
         var data;
         if (cache_entry && cache_entry.data) {
-            console.log( "Using cached value" );
             data = cache_entry.data;
             $('.loading').hide();
             generate(data);
         } else {
-            console.log("Using non-cached value");
             Meteor.call('drug_label', count, function (error, res) {
                 if (error) {
                     console.log(error);

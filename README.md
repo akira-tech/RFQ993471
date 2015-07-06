@@ -2,7 +2,10 @@
 
 ## Summary
 
-  This project demonstrates Akira Technologies capabilities in developing web application using cutting-edge technologies and Agile methodology
+  This project demonstrates Akira Technologies capabilities in developing web application using cutting-edge technologies and Agile methodology.
+  The application we built uses data retrieved from open.fda.gov to visualize the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
+  The overall system architecture is presented on the following diagram:
+  ![Akira TEchnologies Agile BPA PoC Architecture](/doc/architecture/architecture.png)
 
 ## Evaluation Criteria
 
@@ -48,7 +51,7 @@
   * CSS3/Less
   * Responsive design with Bootstrap
   * jQuery
-  * Websockets.io - main browser-server communication protocol
+  * Websockets - main browser-server communication protocol
   * D3.js - for the wordcloud visualization
   * REST API for consuming and exposing data
   * Meteor - the main app platform
