@@ -1,5 +1,6 @@
 ---
 - hosts: app_servers
+  serial: 1
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -10,5 +11,5 @@
         state: reloaded
         pull: always
         ports: 3000:3000
-        count: 1
+        count: 2
         command: sleep 1d
