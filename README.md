@@ -2,48 +2,20 @@
 
 ## Summary
 
-  This project demonstrates Akira Technologies capabilities in developing web application using cutting-edge technologies and Agile methodology.
-  The application we built uses data retrieved from open.fda.gov to visualize the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
-  The overall system architecture is presented on the following diagram:
-  ![Akira TEchnologies Agile BPA PoC Architecture](/doc/architecture/architecture.png)
+This project demonstrates capabilities of Akira Technologies in developing applications using cutting-edge technologies and Agile methodology.
+The application we built uses data retrieved from open.fda.gov to visualize the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
+The overall system architecture is presented on the following diagram:
+![Akira TEchnologies Agile BPA PoC Architecture](/doc/architecture/architecture.png)
 
 ## Evaluation Criteria
 
 ### A. Team Leader
 
-  Akira selected on of its project managers to be the team leader and coordingate the team effort and deliverables using Jira Kanban and Google Docs as the primary tools.
+On of Akira's project managers worked as the team leader and coordingated the team effort and deliverables using Jira Kanban, Webex and Google Docs as the primary tools.
 
 ### B. Team
 
-  Akira's team conists of 8 people working simultaneously in multiple projects and joining different efforts on demand.
-
-### Understanding people needs
-  Akira identified the following categories of users and their needs:
-  * __Researchers__ - looking for data visualization, ways to export both data and imagery
-  * __Developers__ - looking for data export functionality using one of public standard protocols such as REST
-  * __General public__ - looking for something interactive, entertaining and in general interesting
-  Akira included representatives from all 3 groups of people to brainstorm about the idea for the project.
-  Discussions with these groups of people lead to the current product functionality and UI design
-
-### Human-centered design techniques
-  Akira selected the following techniques for this project:
-  * __Focus group__. Please see the [meetings minutes](/doc/meeting-minutes) in the [documentation folder](/doc).
-  * __Usability testing__. The [test plan](/doc/usability_test/2015062901/plan.txt) and [outcomes](/doc/usability_test) are provided in the documentation folder
-  * __Participatory design__. The engaged groups of users were submitting their feedback in the form of Jira issues as well as informal emails that ware further converted into Jira issues.
-
-### Design Style Guide
-  [All stages of the UI design process](/doc/design) are included into the github repository
-  The design style guide is provided as a combination of the [design image](/doc/images/3_design_1.png) and [style guilde document](/doc/design/4_design_style_guide.txt).
-
-### Usability Tests
-  Akira conducted two usability minitests and posted [the results](/doc/usability_test) to the github
-
-### Prototype
-  Our prototype is available in the form of
-  * __Web application__: available at http://agilebpa.akira-tech.com
-  * __iOS__ application: [see the screenshot #1](/doc/responsive_and_multiplatform/ios_1.png) or [screenshor #2](/doc/responsive_and_multiplatform/ios_2.png) of the app running in the emulator
-  * __Android__ application: [see the screenshot](/doc/responsive_and_multiplatform/android.png) of the app running in the emulator
-  It also has fully responsive design as illustrated on [scheenshot #1](/doc/responsive_and_multiplatform/chrome_narrow_1.png) and [screenshot #2)(/doc/responsive_and_multiplatform/chrome_wide_2.png)
+Akira's team conists of 6 people working simultaneously in multiple projects and joining different efforts on demand.
 
 ### C. Technologies
   In this prototype we used the following technologies:
@@ -127,9 +99,8 @@ Please find the complete list of technologies and corresponding [licenses on the
 
 #### 508 Compliance
 
-Just like with other Akira solutions we made sure this app is 508 compliant, fixed all related problems (including the contrast errors) and made the wordcloud content available to screenreaders.
-You have review the compliance with <a href="https://wave.webaim.org/toolbar/">Webaim WAVE Toolbar</a> (please do not use the online version).
-You can also find the [WAVE scan screenshot](/doc/508/508.png) in the Github repository.
+We made sure this app is 508 compliant, fixed all related problems (including the contrast errors) and made the wordcloud content available to screenreaders.
+You have review the compliance with <a href="https://wave.webaim.org/toolbar/">Webaim WAVE Toolbar</a> (please do not use the online version), [screenshot if provided](/doc/508/508.png).
 
 #### REST API
   Our application both consumes and exposes data via REST interface:
