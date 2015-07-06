@@ -11,5 +11,5 @@
         state: reloaded
         pull: always
         ports: 3000:3000
-        count: 2
+        count: 1
         command: sleep 1d
