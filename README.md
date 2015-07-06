@@ -118,7 +118,7 @@ There are multiple ways to install and run the application, all [explained in th
 ### L. Licenses
 
 We only used open source and free of chage software in this project.
-Please find the complete list of technologies and and corresponding licenses on the Github Wiki](/wiki/Software-Licenses)
+Please find the complete list of technologies and corresponding [licenses on the Github Wiki](/wiki/Software-Licenses)
 
 ### Other Notes
 

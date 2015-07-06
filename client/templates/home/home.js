@@ -54,7 +54,6 @@ var generate = function (words) {
         var w = tags[i].key.split('::');
         $('#words-508').append('<tr><td>' + w[1] + '</td><td>' + w[0] + '</td><td>' + ( parseInt(i) + 1 ) + '</td></tr>');
     }
-    //$('#settings_tab').click();
 };
 
 function draw(t, e) {
@@ -135,9 +134,6 @@ Template.home.rendered = function () {
         $('#update_btn').click();
     });
     $(window).resize();
-    if (show_intro) {
-        $('#intro_btn').click();
-    }
 };
 
 Template.home.events({

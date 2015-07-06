@@ -1,0 +1,421 @@
+Started by GitHub push by akira-andrey-mikhalchuk
+Building in workspace /var/lib/jenkins/jobs/GSA 18F PoC/workspace
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/akira-tech/RFQ993471/ # timeout=10
+Fetching upstream changes from https://github.com/akira-tech/RFQ993471/
+ > git --version # timeout=10
+using .gitcredentials to set credentials
+ > git config --local credential.helper store --file=/tmp/git2095517245720243349.credentials # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/akira-tech/RFQ993471/ +refs/heads/*:refs/remotes/origin/*
+ > git config --local --remove-section credential # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 6387298cdac6fc2bd61d61e9aa0786531374789b (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6387298cdac6fc2bd61d61e9aa0786531374789b
+ > git rev-list 721205a6a206b1793e5b3767acb0da41e7713c4d # timeout=10
+Setting commit status on GitHub for https://github.com/akira-tech/RFQ993471/commit/6387298cdac6fc2bd61d61e9aa0786531374789b
+[workspace] $ /bin/sh -xe /tmp/hudson8454111432065255307.sh
++ npm install underscore
+npm WARN package.json fs@0.0.2 fs is also the name of a node core module.
+npm WARN package.json fs@0.0.2 No description
+npm WARN package.json fs@0.0.2 No repository field.
+underscore@1.8.3 node_modules/underscore
++ npm install fs
+npm WARN package.json fs@0.0.2 fs is also the name of a node core module.
+npm WARN package.json fs@0.0.2 No description
+npm WARN package.json fs@0.0.2 No repository field.
+fs@0.0.2 node_modules/fs
++ cd tests
++ jasmine
+Started
+....
+
+
+4 specs, 0 failures
+Finished in 0.015 seconds
+Performing Post build task...
+Match found for : : True
+Logical operation result is TRUE
+Running script  : sudo docker build -t akiratech/rfq993471 .
+#sudo docker login -u XXXXXX -p ZZZZZZ -e "YYYYYY"
+sudo docker push akiratech/rfq993471
+sleep 10
+ansible-playbook playbook.yml
+[workspace] $ /bin/sh -xe /tmp/hudson3931194859529628865.sh
++ sudo docker build -t akiratech/rfq993471 .
+Sending build context to Docker daemon 557.1 kB
+Sending build context to Docker daemon 1.114 MB
+Sending build context to Docker daemon 1.671 MB
+Sending build context to Docker daemon 2.228 MB
+Sending build context to Docker daemon 2.785 MB
+Sending build context to Docker daemon 3.342 MB
+Sending build context to Docker daemon 3.899 MB
+Sending build context to Docker daemon 4.456 MB
+Sending build context to Docker daemon 5.014 MB
+Sending build context to Docker daemon 5.571 MB
+Sending build context to Docker daemon 6.128 MB
+Sending build context to Docker daemon 6.685 MB
+Sending build context to Docker daemon 7.242 MB
+Sending build context to Docker daemon 7.799 MB
+Sending build context to Docker daemon 8.356 MB
+Sending build context to Docker daemon 8.913 MB
+Sending build context to Docker daemon  9.47 MB
+Sending build context to Docker daemon 10.03 MB
+Sending build context to Docker daemon 10.58 MB
+Sending build context to Docker daemon 11.14 MB
+Sending build context to Docker daemon  11.7 MB
+Sending build context to Docker daemon 12.26 MB
+Sending build context to Docker daemon 12.81 MB
+Sending build context to Docker daemon 13.37 MB
+Sending build context to Docker daemon 13.93 MB
+Sending build context to Docker daemon 14.48 MB
+Sending build context to Docker daemon 15.04 MB
+Sending build context to Docker daemon  15.6 MB
+Sending build context to Docker daemon 16.15 MB
+Sending build context to Docker daemon 16.71 MB
+Sending build context to Docker daemon 17.27 MB
+Sending build context to Docker daemon 17.83 MB
+Sending build context to Docker daemon 18.38 MB
+Sending build context to Docker daemon 18.94 MB
+Sending build context to Docker daemon  19.5 MB
+Sending build context to Docker daemon 20.05 MB
+Sending build context to Docker daemon 20.61 MB
+Sending build context to Docker daemon 21.17 MB
+Sending build context to Docker daemon 21.73 MB
+Sending build context to Docker daemon 22.28 MB
+Sending build context to Docker daemon 22.84 MB
+Sending build context to Docker daemon  23.4 MB
+Sending build context to Docker daemon 23.95 MB
+Sending build context to Docker daemon 24.51 MB
+Sending build context to Docker daemon 25.07 MB
+Sending build context to Docker daemon 25.62 MB
+Sending build context to Docker daemon 26.18 MB
+Sending build context to Docker daemon 26.74 MB
+Sending build context to Docker daemon  27.3 MB
+Sending build context to Docker daemon 27.85 MB
+Sending build context to Docker daemon 28.41 MB
+Sending build context to Docker daemon 28.97 MB
+Sending build context to Docker daemon 29.52 MB
+Sending build context to Docker daemon 30.08 MB
+Sending build context to Docker daemon 30.64 MB
+Sending build context to Docker daemon  31.2 MB
+Sending build context to Docker daemon 31.75 MB
+Sending build context to Docker daemon 32.31 MB
+Sending build context to Docker daemon 32.87 MB
+Sending build context to Docker daemon 33.42 MB
+Sending build context to Docker daemon 33.98 MB
+Sending build context to Docker daemon 34.54 MB
+Sending build context to Docker daemon 35.09 MB
+Sending build context to Docker daemon 35.65 MB
+Sending build context to Docker daemon 36.21 MB
+Sending build context to Docker daemon 36.77 MB
+Sending build context to Docker daemon 37.32 MB
+Sending build context to Docker daemon 37.88 MB
+Sending build context to Docker daemon 38.44 MB
+Sending build context to Docker daemon 38.99 MB
+Sending build context to Docker daemon 39.55 MB
+Sending build context to Docker daemon 40.11 MB
+Sending build context to Docker daemon 40.67 MB
+Sending build context to Docker daemon 41.22 MB
+Sending build context to Docker daemon 41.78 MB
+Sending build context to Docker daemon 42.34 MB
+Sending build context to Docker daemon 42.89 MB
+Sending build context to Docker daemon 43.45 MB
+Sending build context to Docker daemon 44.01 MB
+Sending build context to Docker daemon 44.56 MB
+Sending build context to Docker daemon 45.12 MB
+Sending build context to Docker daemon 45.68 MB
+Sending build context to Docker daemon 46.24 MB
+Sending build context to Docker daemon 46.79 MB
+Sending build context to Docker daemon 47.35 MB
+Sending build context to Docker daemon 47.91 MB
+Sending build context to Docker daemon 48.46 MB
+Sending build context to Docker daemon 49.02 MB
+Sending build context to Docker daemon 49.58 MB
+Sending build context to Docker daemon 50.14 MB
+Sending build context to Docker daemon 50.69 MB
+Sending build context to Docker daemon 51.25 MB
+Sending build context to Docker daemon 51.81 MB
+Sending build context to Docker daemon 52.36 MB
+Sending build context to Docker daemon 52.92 MB
+Sending build context to Docker daemon 53.48 MB
+Sending build context to Docker daemon 54.03 MB
+Sending build context to Docker daemon 54.59 MB
+Sending build context to Docker daemon 55.15 MB
+Sending build context to Docker daemon 55.71 MB
+Sending build context to Docker daemon 56.26 MB
+Sending build context to Docker daemon 56.82 MB
+Sending build context to Docker daemon 57.38 MB
+Sending build context to Docker daemon 57.93 MB
+Sending build context to Docker daemon 58.49 MB
+Sending build context to Docker daemon 59.05 MB
+Sending build context to Docker daemon  59.6 MB
+Sending build context to Docker daemon 60.16 MB
+Sending build context to Docker daemon 60.72 MB
+Sending build context to Docker daemon 61.28 MB
+Sending build context to Docker daemon 61.83 MB
+Sending build context to Docker daemon 62.39 MB
+Sending build context to Docker daemon 62.95 MB
+Sending build context to Docker daemon  63.5 MB
+Sending build context to Docker daemon 64.06 MB
+Sending build context to Docker daemon 64.62 MB
+Sending build context to Docker daemon 65.18 MB
+Sending build context to Docker daemon 65.73 MB
+Sending build context to Docker daemon 66.29 MB
+Sending build context to Docker daemon 66.85 MB
+Sending build context to Docker daemon  67.4 MB
+Sending build context to Docker daemon 67.96 MB
+Sending build context to Docker daemon 68.52 MB
+Sending build context to Docker daemon 69.07 MB
+Sending build context to Docker daemon 69.63 MB
+Sending build context to Docker daemon 70.19 MB
+Sending build context to Docker daemon 70.75 MB
+Sending build context to Docker daemon  71.3 MB
+Sending build context to Docker daemon 71.86 MB
+Sending build context to Docker daemon 72.42 MB
+Sending build context to Docker daemon 72.97 MB
+Sending build context to Docker daemon 73.53 MB
+Sending build context to Docker daemon 74.09 MB
+Sending build context to Docker daemon 74.65 MB
+Sending build context to Docker daemon  75.2 MB
+Sending build context to Docker daemon 75.76 MB
+Sending build context to Docker daemon 76.32 MB
+Sending build context to Docker daemon 76.87 MB
+Sending build context to Docker daemon 77.43 MB
+Sending build context to Docker daemon 77.99 MB
+Sending build context to Docker daemon 78.54 MB
+Sending build context to Docker daemon  79.1 MB
+Sending build context to Docker daemon 79.66 MB
+Sending build context to Docker daemon 80.22 MB
+Sending build context to Docker daemon 80.77 MB
+Sending build context to Docker daemon 81.33 MB
+Sending build context to Docker daemon 81.89 MB
+Sending build context to Docker daemon 82.44 MB
+Sending build context to Docker daemon    83 MB
+Sending build context to Docker daemon 83.56 MB
+Sending build context to Docker daemon 84.12 MB
+Sending build context to Docker daemon 84.67 MB
+Sending build context to Docker daemon 85.23 MB
+Sending build context to Docker daemon 85.79 MB
+Sending build context to Docker daemon 86.34 MB
+Sending build context to Docker daemon  86.9 MB
+Sending build context to Docker daemon 87.46 MB
+Sending build context to Docker daemon 88.01 MB
+Sending build context to Docker daemon 88.57 MB
+Sending build context to Docker daemon 89.13 MB
+Sending build context to Docker daemon 89.69 MB
+Sending build context to Docker daemon 90.24 MB
+Sending build context to Docker daemon  90.8 MB
+Sending build context to Docker daemon 91.36 MB
+Sending build context to Docker daemon 91.91 MB
+Sending build context to Docker daemon 92.47 MB
+Sending build context to Docker daemon 93.03 MB
+Sending build context to Docker daemon 93.59 MB
+Sending build context to Docker daemon 94.14 MB
+Sending build context to Docker daemon  94.7 MB
+Sending build context to Docker daemon 95.26 MB
+Sending build context to Docker daemon 95.81 MB
+Sending build context to Docker daemon 96.37 MB
+Sending build context to Docker daemon 96.93 MB
+Sending build context to Docker daemon 97.48 MB
+Sending build context to Docker daemon 98.04 MB
+Sending build context to Docker daemon  98.6 MB
+Sending build context to Docker daemon 99.16 MB
+Sending build context to Docker daemon 99.71 MB
+Sending build context to Docker daemon 100.3 MB
+Sending build context to Docker daemon 100.8 MB
+Sending build context to Docker daemon 101.4 MB
+Sending build context to Docker daemon 101.9 MB
+Sending build context to Docker daemon 102.5 MB
+Sending build context to Docker daemon 103.1 MB
+Sending build context to Docker daemon 103.6 MB
+Sending build context to Docker daemon 104.2 MB
+Sending build context to Docker daemon 104.7 MB
+Sending build context to Docker daemon 105.3 MB
+Sending build context to Docker daemon 105.8 MB
+Sending build context to Docker daemon 106.4 MB
+Sending build context to Docker daemon   107 MB
+Sending build context to Docker daemon 107.5 MB
+Sending build context to Docker daemon 108.1 MB
+Sending build context to Docker daemon 108.6 MB
+Sending build context to Docker daemon 109.2 MB
+Sending build context to Docker daemon 109.7 MB
+Sending build context to Docker daemon 110.3 MB
+Sending build context to Docker daemon 110.9 MB
+Sending build context to Docker daemon 111.4 MB
+Sending build context to Docker daemon   112 MB
+Sending build context to Docker daemon 112.5 MB
+Sending build context to Docker daemon 113.1 MB
+Sending build context to Docker daemon 113.6 MB
+Sending build context to Docker daemon 114.2 MB
+Sending build context to Docker daemon 114.8 MB
+Sending build context to Docker daemon 115.3 MB
+Sending build context to Docker daemon 115.9 MB
+Sending build context to Docker daemon 116.4 MB
+Sending build context to Docker daemon   117 MB
+Sending build context to Docker daemon 117.5 MB
+Sending build context to Docker daemon 118.1 MB
+Sending build context to Docker daemon 118.7 MB
+Sending build context to Docker daemon 119.2 MB
+Sending build context to Docker daemon 119.8 MB
+Sending build context to Docker daemon 120.3 MB
+Sending build context to Docker daemon 120.9 MB
+Sending build context to Docker daemon 121.4 MB
+Sending build context to Docker daemon   122 MB
+Sending build context to Docker daemon 122.6 MB
+Sending build context to Docker daemon 123.1 MB
+Sending build context to Docker daemon 123.7 MB
+Sending build context to Docker daemon 124.2 MB
+Sending build context to Docker daemon 124.8 MB
+Sending build context to Docker daemon 125.3 MB
+Sending build context to Docker daemon 125.9 MB
+Sending build context to Docker daemon 126.5 MB
+Sending build context to Docker daemon   127 MB
+Sending build context to Docker daemon 127.6 MB
+Sending build context to Docker daemon 128.1 MB
+Sending build context to Docker daemon 128.7 MB
+Sending build context to Docker daemon 129.2 MB
+Sending build context to Docker daemon 129.8 MB
+Sending build context to Docker daemon 130.4 MB
+Sending build context to Docker daemon 130.9 MB
+Sending build context to Docker daemon 131.5 MB
+Sending build context to Docker daemon   132 MB
+Sending build context to Docker daemon 132.6 MB
+Sending build context to Docker daemon 133.1 MB
+Sending build context to Docker daemon 133.7 MB
+Sending build context to Docker daemon 134.3 MB
+Sending build context to Docker daemon 134.8 MB
+Sending build context to Docker daemon 135.4 MB
+Sending build context to Docker daemon 135.9 MB
+Sending build context to Docker daemon 136.5 MB
+Sending build context to Docker daemon   137 MB
+Sending build context to Docker daemon 137.6 MB
+Sending build context to Docker daemon 138.1 MB
+Sending build context to Docker daemon 138.7 MB
+Sending build context to Docker daemon 139.3 MB
+Sending build context to Docker daemon 139.8 MB
+Sending build context to Docker daemon 140.4 MB
+Sending build context to Docker daemon 140.9 MB
+Sending build context to Docker daemon 141.5 MB
+Sending build context to Docker daemon   142 MB
+Sending build context to Docker daemon 142.6 MB
+Sending build context to Docker daemon 143.2 MB
+Sending build context to Docker daemon 143.7 MB
+Sending build context to Docker daemon 144.3 MB
+Sending build context to Docker daemon 144.8 MB
+Sending build context to Docker daemon 145.4 MB
+Sending build context to Docker daemon 145.9 MB
+Sending build context to Docker daemon 146.5 MB
+Sending build context to Docker daemon 147.1 MB
+Sending build context to Docker daemon 147.6 MB
+Sending build context to Docker daemon 148.2 MB
+Sending build context to Docker daemon 148.7 MB
+Sending build context to Docker daemon 149.3 MB
+Sending build context to Docker daemon 149.8 MB
+Sending build context to Docker daemon 150.4 MB
+Sending build context to Docker daemon   151 MB
+Sending build context to Docker daemon 151.5 MB
+Sending build context to Docker daemon 152.1 MB
+Sending build context to Docker daemon 152.6 MB
+Sending build context to Docker daemon 153.2 MB
+Sending build context to Docker daemon 153.7 MB
+Sending build context to Docker daemon 154.3 MB
+Sending build context to Docker daemon 154.9 MB
+Sending build context to Docker daemon 155.4 MB
+Sending build context to Docker daemon   156 MB
+Sending build context to Docker daemon 156.5 MB
+Sending build context to Docker daemon 157.1 MB
+Sending build context to Docker daemon 157.6 MB
+Sending build context to Docker daemon 158.2 MB
+Sending build context to Docker daemon 158.8 MB
+Sending build context to Docker daemon 159.3 MB
+Sending build context to Docker daemon 159.9 MB
+Sending build context to Docker daemon 160.4 MB
+Sending build context to Docker daemon   161 MB
+Sending build context to Docker daemon 161.5 MB
+Sending build context to Docker daemon 162.1 MB
+Sending build context to Docker daemon 162.7 MB
+Sending build context to Docker daemon 163.2 MB
+Sending build context to Docker daemon 163.8 MB
+Sending build context to Docker daemon 164.3 MB
+Sending build context to Docker daemon 164.9 MB
+Sending build context to Docker daemon 165.4 MB
+Sending build context to Docker daemon   166 MB
+Sending build context to Docker daemon 166.6 MB
+Sending build context to Docker daemon 167.1 MB
+Sending build context to Docker daemon 167.7 MB
+Sending build context to Docker daemon 168.2 MB
+Sending build context to Docker daemon 168.8 MB
+Sending build context to Docker daemon 169.3 MB
+Sending build context to Docker daemon 169.9 MB
+Sending build context to Docker daemon 170.5 MB
+Sending build context to Docker daemon 170.9 MB
+
+Sending build context to Docker daemon 
+Step 0 : FROM debian:wheezy
+ ---> 065218d54d7d
+Step 1 : MAINTAINER Andrey Mikhalchuk <amikhalchuk@akira-tech.com>
+ ---> Using cache
+ ---> e63261805cd6
+Step 2 : RUN /bin/bash -c "apt-get update && apt-get install -y curl git procps"
+ ---> Using cache
+ ---> 30531934efdc
+Step 3 : RUN /bin/bash -c "curl https://install.meteor.com | /bin/sh"
+ ---> Using cache
+ ---> 98186b4a3afb
+Step 4 : ENV APP_DIR "/root/app"
+ ---> Using cache
+ ---> 94bedcadeb7e
+Step 5 : RUN /bin/bash -c "git clone https://github.com/akira-tech/RFQ993471.git ${APP_DIR}"
+ ---> Using cache
+ ---> 642d5e9983b5
+Step 6 : WORKDIR $APP_DIR
+ ---> Using cache
+ ---> 129debddae95
+Step 7 : EXPOSE 3000
+ ---> Using cache
+ ---> 3a9605aa5030
+Step 8 : ENTRYPOINT meteor --production --port 3000 2>&1
+ ---> Using cache
+ ---> 5d886b2dfc4b
+Successfully built 5d886b2dfc4b
++ sudo docker push akiratech/rfq993471
+The push refers to a repository [akiratech/rfq993471] (len: 1)
+5d886b2dfc4b: Image already exists
+5d886b2dfc4b: Image already exists
+3a9605aa5030: Image already exists
+129debddae95: Image already exists
+642d5e9983b5: Image already exists
+94bedcadeb7e: Image already exists
+98186b4a3afb: Image already exists
+30531934efdc: Image already exists
+e63261805cd6: Image already exists
+065218d54d7d: Image already exists
+104de4492b99: Image already exists
+Digest: sha256:95832413259e8e668c358251c521af9dcff832407c38c377b13caa906635858a
++ sleep 10
++ ansible-playbook playbook.yml
+/usr/lib64/python2.7/dist-packages/Crypto/Util/number.py:57: PowmInsecureWarning: Not using mpz_powm_sec.  You should rebuild using libgmp >= 5 to avoid timing attack vulnerability.
+  _warn("Not using mpz_powm_sec.  You should rebuild using libgmp >= 5 to avoid timing attack vulnerability.", PowmInsecureWarning)
+
+PLAY [app_servers] ************************************************************ 
+
+GATHERING FACTS *************************************************************** 
+ok: [172.30.0.46]
+ok: [172.30.1.106]
+TASK: [AgileBPA PoC Container] ************************************************ 
+changed: [172.30.1.106]
+
+TASK: [AgileBPA PoC Container] ************************************************ 
+changed: [172.30.0.46]
+
+PLAY RECAP ******************************************************************** 
+172.30.0.46                : ok=2    changed=1    unreachable=0    failed=0   
+172.30.1.106               : ok=2    changed=1    unreachable=0    failed=0   
+
+POST BUILD TASK : SUCCESS
+END OF POST BUILD TASK : 0
+Setting commit status on GitHub for https://github.com/akira-tech/RFQ993471/commit/6387298cdac6fc2bd61d61e9aa0786531374789b
+Finished: SUCCESS

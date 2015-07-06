@@ -22,5 +22,6 @@ Meteor = {
                 statusCode: 200
             }
         }
-    }
+    },
+    Error: function() { throw new Error("error"); }
 };
