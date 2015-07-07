@@ -6,7 +6,7 @@ The prototype is available at [http://agilebpa.akira-tech.com](http://agilebpa.a
 
 ## [Inception](https://github.com/akira-tech/RFQ993471/tree/master/doc/design)
 
-We started working on this project with forming the team
+Project team with labor categories:
 
 Category # | Role / LCAT              | Name
 -----------|--------------------------|----------------------------
@@ -17,15 +17,15 @@ Category 8 | DevOps Engineer          | R. Lancia / A. Ertel
            | Project Lead             | B. Dorsey
            | Testing, reviews, misc   | E. Liang, R. Siebel, J. Coblentz, J. Phipps
 
-The project workforce participated in a brainstorm (Webex with followup emails) to generate the application idea.
-We wanted the idea to be relatively simple, dynamic, user-friendly and implementable with the cutting-edge technological stacks.
-We decided to implement an app retrieving data from http://open.fda.gov to visualize the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
-This application allows users at a glace understand the prevailing subjects of concern among different types of drugs.
+The team participated in a brainstorm (Webex with followup emails) to generate the application idea.
+Our goals were to be relatively simple, dynamic, user-friendly and implementable with the cutting-edge technological stacks.
+We decided to implement an app for retrieving data from http://open.fda.gov for visualizing the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
+This application allows users to visualize the prevailing subjects of concern among different types of drugs.
 
 We envisioned the following use cases:
 
 * __General User__:
-  - quickly find prevalent issues or warnings listed in the warning section of the product labels
+  - quickly find prevalent issues or warnings listed in the warning section of product labels
   - share one's findings with friends using downloadable .png or .svg file
 
 * __Researcher__:
@@ -46,7 +46,7 @@ We envisioned the following use cases:
 ## [Development](https://github.com/akira-tech/RFQ993471/tree/master/doc/reports)
 
 Duration of this project (before the amendments) was too short to effectively use Scrum.
-For this reason we proceeded with Kanban - an ideal Agile methodology for both short PoCs.
+For this reason we proceeded with Kanban - an ideal Agile methodology for short PoCs.
 
 In our process we were continually
 * collecting ideas via
