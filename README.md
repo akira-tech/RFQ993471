@@ -75,7 +75,7 @@ In 2-3 minutes the application will become available at http://localhost:5000
 
 ### J. Iterative approach
 Because of the duration of this project being shorter than a typical Scrum sprint, we decided to use Kanban instead of Scrum.
-Jira, WebEx and Google docs were used as the main collaboration and management tools.
+Jira, WebEx and Google docs were used as the main collaboration and management tools. The [meeting minutes](wiki/Meeting-Minutes) and [Jira reports](/doc/reports) are uploaded to Github.
 
 ### K. Installation / Running the app
 There are multiple ways to install and run the application, all [explained in the Github Wiki](/wiki/Installing-and-Running-the-Application)
