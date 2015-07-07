@@ -1,4 +1,4 @@
-# RFQ993471 - Agile BPA PoC
+# RFQ993471 - Agile BPA PoC for Pool 2
 
 ## Summary
 
@@ -16,6 +16,12 @@ On of Akira's project managers worked as the team leader and coordingated the te
 ### B. Team
 
 Akira's team conists of 6 people working simultaneously in multiple projects and joining different efforts on demand.
+Category # | LCAT                     | Name
+-----------|--------------------------|----------------------------
+Category 2 | Technical Architect:     | A. Mikhalchuk
+Category 6 | Front End Web Developer: | A. Velichko
+Category 7 | Backend Web Developer:   | A. Mikhalchuk / H. Schmidt
+Category 8 | DevOps Engineer:         | R. Lancia
 
 ### C. Technologies
   In this prototype we used the following technologies:
@@ -33,7 +39,7 @@ Akira's team conists of 6 people working simultaneously in multiple projects and
 ### D. Deployment
   The prototype is deployed in Amazon Web Services (AWS) IaaS.
   The whole system runs on 3 EC2 instances:
-  * __control server__: continous integration, docker, ansible
+  * __control server__: continous integration, docker, ansakible
   * __two app servers__: running containers with the application, allocated in two different availability zones
   * __AWS ELB__: balancing load, providing redundancy and uptime monitoring
   On every code push to Github Jenkins pulls the new code using hooks and runs unit tests. Upon successful tests run it calls Docker to build image, push it to the Docker Hub and runs rolling deloy from Docker Hub to the two app servers in series using Ansible.
