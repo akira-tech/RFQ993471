@@ -8,12 +8,12 @@ The prototype is available at [http://agilebpa.akira-tech.com](http://agilebpa.a
 
 We started working on this project with forming the team
 
-Category # | LCAT                     | Name
+Category # | Role / LCAT              | Name
 -----------|--------------------------|----------------------------
-Category 2 | Technical Architect:     | A. Mikhalchuk
-Category 6 | Front End Web Developer: | A. Velichko
-Category 7 | Backend Web Developer:   | A. Mikhalchuk / H. Schmidt
-Category 8 | DevOps Engineer:         | R. Lancia / A. Ertel
+Category 2 | Technical Architect      | A. Mikhalchuk
+Category 6 | Front End Web Developer  | A. Velichko
+Category 7 | Backend Web Developer    | A. Mikhalchuk / H. Schmidt
+Category 8 | DevOps Engineer          | R. Lancia / A. Ertel
            | Project Coordinator      | B. Dorsey
            | Testing, reviews, misc   | E. Liang, R. Siebel, J. Coblentz, J. Phipps
 
@@ -40,7 +40,7 @@ We envisioned the following use cases:
 [![Design Wirframe](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/2_wireframe_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/design/2_wireframe.png)
 [![Final Design](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/3_design_2_tn.jpg)](https://github.com/akira-tech/RFQ993471/blob/master/doc/design/3_design_2.jpg)
 [![System Architecture Draft](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/1_draft_tn.jpg)](https://github.com/akira-tech/RFQ993471/blob/master/doc/architecture/1_draft.jpg)
-[![System Architecture Final](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/architecture_tn.jpg)](https://github.com/akira-tech/RFQ993471/blob/master/doc/architecture/architecture.png)
+[![System Architecture Final](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/architecture_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/architecture/architecture.png)
 
 
 ## [Development](https://github.com/akira-tech/RFQ993471/tree/master/doc/reports)
@@ -69,12 +69,12 @@ The resulting architecture is presented on the following diagram:
 ### [Overall System](https://github.com/akira-tech/RFQ993471/tree/master/doc/architecture)
 
 * All system components are hosted in the cloud
-* DockerHub hosts publicly available image for the application
-* Github hosts the code
-* CloudCheckr aggregates continuous monitoring information
+* [DockerHub](https://hub.docker.com/) hosts publicly available image for the application
+* [Github](https://github.com/akira-tech/RFQ993471) hosts the code
+* [CloudCheckr](http://cloudcheckr.com/) aggregates continuous monitoring information
 * AWS hosts the key system components:
-  * ELB: balances load between two servers in different availability zones, reports downtime
-  * CloudWatch, CloudTrail: continually monitor the systems
+  * [ELB](http://aws.amazon.com/elasticloadbalancing/): balances load between two servers in different availability zones, reports downtime
+  * [CloudWatch](http://aws.amazon.com/cloudwatch/), [CloudTrail](http://aws.amazon.com/cloudtrail/): continually monitor the systems
   * Control Server: runs [Jenkins CI](https://jenkins-ci.org/), [Docker](https://www.docker.com/), [Jasmine](http://jasmine.github.io/), [Ansible](http://www.ansible.com/home)
   * App servers run Docker, [Meteor](https://www.meteor.com/) including [MongoDB](https://www.mongodb.com/)
 
@@ -101,8 +101,10 @@ The resulting architecture is presented on the following diagram:
 * ELB balances the load between two application servers using
 * Each app server checks local cache for data availability. We use cache to reduce the number of calls to http://open.fda.gov and improve the performance. In this PoC we use MongoDB for chaching, though in all other projects we stick with Redis or Memcached.
 * If the data is not in the cache a call is made to https://api.fda.gov/drug/label.json?api_key=AKIRA_API_KEY&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100, data processed, returned to the client and cached
-* Data is returned to the user via Meteor collections (operating on top of websockets) and presented using D3.js
-* The application also exposes data via REST API: http://agilebpa.akira-tech.com/words-frequency.json](http://agilebpa.akira-tech.com/words-frequency.json
+* Data is returned to the user via Meteor collections (operating on top of [websockets](http://www.websocket.org/)) and presented using [D3.js](http://d3js.org/)
+* Exposes data via REST API: http://agilebpa.akira-tech.com/words-frequency.json](http://agilebpa.akira-tech.com/words-frequency.json
+
+[![Narrow Layout](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/chrome_narrow_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/responsive_and_multiplatform/chrome_narrow_1.png)
 
 ### [Continuous monitoring](https://github.com/akira-tech/RFQ993471/tree/master/doc/continuous_monitoring)
 
@@ -129,11 +131,10 @@ The resulting prototype has the following characteristics:
 * Uses cutting-edge technologies and approaches including, but not limited to HTML5, CSS3, Less, Bootstrap, jQuery, Websockets, D3.js, REST, Meteor, MongoDB, Cordova/Phonegap
 * Runs in a web browser as well as an iOS or Android application
 * Fully-responsive
-* Fully 508-compliant (note there are no errors and contrast errors, we also included the text version of the word cloud for JAWS and similar systems)
+* Fully 508-compliant (no errors / contrast errors, provided text version of the word cloud for JAWS and similar systems)
 
 [![508 Compliance](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/508_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/508/508.png)
 [![Wide Layout](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/chrome_wide_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/responsive_and_multiplatform/chrome_wide_2.png)
-[![Narrow Layout](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/chrome_narrow_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/responsive_and_multiplatform/chrome_narrow_1.png)
 [![iOS Application](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/ios_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/responsive_and_multiplatform/ios_1.png)
 [![Android Application](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/android_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/responsive_and_multiplatform/android.png)
 
