@@ -1,6 +1,6 @@
 # Agile BPA PoC for Pool 2 (RFQ993471)
 
-## Prototype
+## [Prototype](http://agilebpa.akira-tech.com)
 
 The prototype is available at [http://agilebpa.akira-tech.com](http://agilebpa.akira-tech.com)
 
@@ -75,7 +75,7 @@ The resulting architecture is presented on the following diagram:
 * AWS hosts the key system components:
   * [ELB](http://aws.amazon.com/elasticloadbalancing/): balances load between two servers in different availability zones, reports downtime
   * [CloudWatch](http://aws.amazon.com/cloudwatch/), [CloudTrail](http://aws.amazon.com/cloudtrail/): continually monitor the systems
-  * Control Server: runs [Jenkins CI](https://jenkins-ci.org/), [Docker](https://www.docker.com/), [Jasmine](http://jasmine.github.io/), [Ansible](http://www.ansible.com/home)
+  * [Control Server](http://agilebpa-ci.akira-tech.com:8080/): runs [Jenkins CI](https://jenkins-ci.org/), [Docker](https://www.docker.com/), [Jasmine](http://jasmine.github.io/), [Ansible](http://www.ansible.com/home)
   * App servers run Docker, [Meteor](https://www.meteor.com/) including [MongoDB](https://www.mongodb.com/)
 
 [![AWS EC2](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/aws_ec2_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/architecture/aws_ec2.png)
