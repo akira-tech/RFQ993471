@@ -74,7 +74,7 @@ The resulting architecture is presented on the following diagram:
 * [CloudCheckr](http://cloudcheckr.com/) aggregates continuous monitoring information
 * AWS hosts the key system components:
   * [ELB](http://aws.amazon.com/elasticloadbalancing/): balances load between two servers in different availability zones, reports downtime
-  * [CloudWatch](http://aws.amazon.com/cloudwatch/), [CloudTrail](http://aws.amazon.com/cloudtrail/): continually monitor the systems
+  * [CloudWatch](http://aws.amazon.com/cloudwatch/), [CloudTrail](http://aws.amazon.com/cloudtrail/): continually monitors the systems
   * [Control Server](http://agilebpa-ci.akira-tech.com:8080/): runs [Jenkins CI](https://jenkins-ci.org/), [Docker](https://www.docker.com/), [Jasmine](http://jasmine.github.io/), [Ansible](http://www.ansible.com/home)
   * App servers run Docker, [Meteor](https://www.meteor.com/) including [MongoDB](https://www.mongodb.com/)
 
@@ -83,11 +83,11 @@ The resulting architecture is presented on the following diagram:
 
 ### [Code](https://github.com/akira-tech/RFQ993471/tree/master/doc/continuous_integration)
 
-* Each developer pushes the code to Github.
+* Each developer pushes code to Github.
 * Upon every code push GitHub notifies [Jinkins Contiuous integration system](http://agilebpa-ci.akira-tech.com:8080) about the new code
 * Jenkins pulls the new code, runs [Jasmine](http://jasmine.github.io/) [unit testing](/tests).
-  * If tests fail Jenking notifies the commit author about the problems by email
-  * If tests succeed Jenkins
+  * If tests fail, Jenking notifies the commit author about the problems by email
+  * If tests succeed, Jenkins
     * builds docker image
     * pushes it to [Docker Hub](https://registry.hub.docker.com/u/akiratech/rfq993471/)
     * runs [Ansible playbook](https://github.com/akira-tech/RFQ993471/blob/master/playbook.yml) to perform rolling deploy of the image from DockerHub to the two application server
@@ -97,10 +97,10 @@ The resulting architecture is presented on the following diagram:
 
 ### [User Interface](https://github.com/akira-tech/RFQ993471/tree/master/doc/design)
 
-* User's HTTP request goes to the ELB
+* User's HTTP request goes to ELB
 * ELB balances the load between two application servers using
-* Each app server checks local cache for data availability. We use cache to reduce the number of calls to http://open.fda.gov and improve the performance. In this PoC we use MongoDB for chaching, though in all other projects we stick with Redis or Memcached.
-* If the data is not in the cache a call is made to https://api.fda.gov/drug/label.json?api_key=AKIRA_API_KEY&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100, data processed, returned to the client and cached
+* Each app server checks local cache for data availability. We use cache to reduce the number of calls to http://open.fda.gov and improve the performance.  Unlike in other project, In this PoC we use MongoDB for caching.
+* If the data is not in the cache a call is made to https://api.fda.gov/drug/label.json?api_key=AKIRA_API_KEY&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100, data is processed, returned to the client, and stored in cache
 * Data is returned to the user via Meteor collections (operating on top of [websockets](http://www.websocket.org/)) and presented using [D3.js](http://d3js.org/)
 * Exposes data via REST API: http://agilebpa.akira-tech.com/words-frequency.json](http://agilebpa.akira-tech.com/words-frequency.json
 
@@ -110,9 +110,9 @@ The resulting architecture is presented on the following diagram:
 
 We use the following systems to provide continuous uptime, performance and security monitoring:
 * __AWS CloudWatch__: systems parameters monitoring (CPU Load, disk space etc)
-* __AWS ELB__: website(s) uptime monitoring (in combination with CloudWatch)
-* __AWS SNS__:event notifications
-* __AWS CloudTrail__: security and system changes monitoring
+* __AWS ELB__: uptime monitoring (in combination with CloudWatch)
+* __AWS SNS__: event notifications
+* __AWS CloudTrail__: security and system change monitoring
 * __CloudCheckr__: monitoring information aggregator
 
 [![CloudCheckr](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/cloud_checkr_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/continuous_monitoring/cloud_checkr.png)
@@ -123,12 +123,12 @@ We use the following systems to provide continuous uptime, performance and secur
 [![CloudWatch](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/cloud_watch_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/continuous_monitoring/cloud_watch.png)
 
 
-[These screenshots provide a good idea of what kind of monitoring information we're getting from this powerful combination](/doc/continuous_monitoring).
+[These screenshots provide a feel for the monitoring information available to us](/doc/continuous_monitoring).
 
 ## [Application](https://github.com/akira-tech/RFQ993471/tree/master/doc/responsive_and_multiplatform)
 
 The resulting prototype has the following characteristics:
-* Uses cutting-edge technologies and approaches including, but not limited to HTML5, CSS3, Less, Bootstrap, jQuery, Websockets, D3.js, REST, Meteor, MongoDB, Cordova/Phonegap
+* Uses cutting-edge technologies and approaches including HTML5, CSS3, Less, Bootstrap, jQuery, Websockets, D3.js, REST, Meteor, MongoDB, Cordova/Phonegap
 * Runs in a web browser as well as an iOS or Android application
 * Fully-responsive
 * Fully 508-compliant (no errors / contrast errors, provided text version of the word cloud for JAWS and similar systems)
