@@ -1,21 +1,12 @@
-# RFQ993471 - Agile BPA PoC for Pool 2
+# Agile BPA PoC for Pool 2 (RFQ993471)
 
-## Summary
+## Prototype
 
-This project demonstrates capabilities of Akira Technologies in developing applications using cutting-edge technologies and Agile methodology.
-The application we built uses data retrieved from open.fda.gov to visualize the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
-The overall system architecture is presented on the following diagram:
-![Akira TEchnologies Agile BPA PoC Architecture](/doc/architecture/architecture.png)
+The prototype is available at [http://agilebpa.akira-tech.com](http://agilebpa.akira-tech.com)
 
-## Evaluation Criteria
+## Inception
 
-### A. Team Leader
-
-On of Akira's project managers worked as the team leader and coordingated the team effort and deliverables.
-
-### B. Team
-
-Akira's team conists of 6 people working simultaneously in multiple projects and joining different efforts on demand.
+We started working on this project with forming the team
 
 Category # | LCAT                     | Name
 -----------|--------------------------|----------------------------
@@ -23,83 +14,104 @@ Category 2 | Technical Architect:     | A. Mikhalchuk
 Category 6 | Front End Web Developer: | A. Velichko
 Category 7 | Backend Web Developer:   | A. Mikhalchuk / H. Schmidt
 Category 8 | DevOps Engineer:         | R. Lancia / A. Ertel
+           | Project Coordinator      | B. Dorsey
+           | Testing, reviews, misc   | E. Liang, R. Siebel, J. Coblentz, J. Phipps
 
-### C. Technologies
-  In this prototype we used the following technologies:
-  * HTML5
-  * CSS3/Less
-  * Responsive design with Bootstrap
-  * jQuery
-  * Websockets - main browser-server communication protocol
-  * D3.js - for the wordcloud visualization
-  * REST API for consuming and exposing data
-  * Meteor - the main app platform
-  * MongoDB - for data caching (though we typically use Memcached or Redis for this type of caching)
-  * Cordova/Phonegap - for the mobile apps
+The project workforce participated in a brainstorm (Webex with followup emails) to generate the application idea.
+We wanted the idea to be relatively simple, dynamic, user-friendly and implementable with the cutting-edge technological stacks.
+We decided to implement an app retrieving data from http://open.fda.gov to visualize the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
+This application allows users at a glace understand the prevailing subjects of concern among different types of drugs.
 
-### D. Deployment
-  The prototype is deployed in Amazon Web Services (AWS) IaaS.
-  The whole system runs on 3 EC2 instances:
-  * __control server__: continous integration, docker, ansakible
-  * __two app servers__: running containers with the application, allocated in two different availability zones
-  * __AWS ELB__: balancing load, providing redundancy and uptime monitoring
-  On every code push to Github Jenkins pulls the new code using hooks and runs unit tests. Upon successful tests run it calls Docker to build image, push it to the Docker Hub and runs rolling deloy from Docker Hub to the two app servers in series using Ansible.
+We envisioned the following use cases:
 
-### E. Unit tests
-  We used [Jasmine](http://jasmine.github.io/) for [unit testing](/tests). [Npm, node.js](https://nodejs.org/download/), underscore and fs are required to run the rests:
+* __General User__:
+  - quickly find prevalent issues or warnings listed in the warning section of the product labels
+  - share one's findings with friends using downloadable .png or .svg file
 
-  ```sh
-  npm install -g underscore fs
-  cd tests; jasmine
-  ```
+* __Researcher__:
+  - compare characteristics of different types of drugs
+  - download the term list (as a JSON file)
+  - download the word cloud as an image (either .svg or .png) to include into a report
 
-### F. Continuous integration system
-We use Jenkins as the continuous integration system: [http://agilebpa-ci.akira-tech.com:8080/](http://agilebpa-ci.akira-tech.com:8080/)
-[The CI system screenshots](/doc/continuous_integration) are also available in github.
-Upon successful build Jenkins runs Ansible to create docker image, push it to Docker HUB and then runs rolling deploy to the two application servers.
+* __Developer__:
+  - consume the data displayed in the wordcloud via REST API for inclusion in one's software product.
 
-### G. Configuration management
-For the configuration management and container orchestration we use Ansible+Docker.
+![Design Sketch](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/1_sketch_tn.jpg)
+![Design Wirframe](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/2_wireframe_tn.png)
+![Final Design](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/3_design_2_tn.png)
 
-### H. Continuous monitoring
- The following solutions are implemented for the continuous monitoring:
- * __AWS CloudWatch__: systems parameters monitoring (CPU Load, disk space etc)
- * __AWS ELB__: website(s) uptime monitoring (in combination with CloudWatch)
- * __AWS SNS__:event notifications
- * __AWS CloudTrail__: security and system changes monitoring
- * __CloudCheckr__: monitoring information aggregator
- [These screenshots provide a good idea of what kind of monitoring information we're getting from this powerful combination](/doc/continuous_monitoring).
 
-### I. Containerization
-We used [Docker](http://docker.com) for containerization.
-You can run the application with the following command (requires Docker installation):
+## Development
 
-```sh
-docker run -d -p 5000:3000 akiratech/rfq993471
-```
+Duration of this project (before the amendments) was too short to effectively use Scrum.
+For this reason we proceeded with Kanban - an ideal Agile methodology for both short PoCs.
 
-In 2-3 minutes the application will become available at http://localhost:5000
+In our process we were continually
+* collecting ideas via
+  - daily meetings ([see the notes](https://github.com/akira-tech/RFQ993471/wiki/Meeting-Minutes))
+  - [usability tests](https://github.com/akira-tech/RFQ993471/tree/master/doc/usability_test/2015062901)
+  - discussions with people outside the project work team
+* converting the new ideas into Kanban stories in Jira ([see the project reports](https://github.com/akira-tech/RFQ993471/tree/master/doc/reports))
+* discussing, prioritizing and moving stories from the backlog to the development swimlane
+* reevaluating the results the next day
 
-### J. Iterative approach
-Because of the duration of this project being shorter than a typical Scrum sprint, we decided to use Kanban instead of Scrum.
-Jira, WebEx and Google docs were used as the main collaboration and management tools. The [meeting minutes](wiki/Meeting-Minutes) and [Jira reports](/doc/reports) are uploaded to Github.
+## Architecture
 
-### K. Installation / Running the app
-There are multiple ways to install and run the application, all [explained in the Github Wiki](/wiki/Installing-and-Running-the-Application)
+The resulting architecture is presented on the following diagram:
 
-### L. Licenses
+![Akira Technologies Agile BPA PoC Architecture](https://github.com/akira-tech/RFQ993471/blob/master/doc/architecture/architecture.png)
 
-We only used open source and free of chage software in this project.
-Please find the complete list of technologies and corresponding [licenses on the Github Wiki](/wiki/Software-Licenses)
+### Overall System
 
-### Other Notes
+* All system components are hosted in the cloud
+* DockerHub hosts publicly available image for the application
+* Github hosts the code
+* CloudCheckr aggregates continuous monitoring information
+* AWS hosts the key system components:
+  * ELB: balances load between two servers in different availability zones, reports downtime
+  * CloudWatch, CloudTrail: continually monitor the systems
+  * Control Server: runs [Jenkins CI](https://jenkins-ci.org/), [Docker](https://www.docker.com/), [Jasmine](http://jasmine.github.io/), [Ansible](http://www.ansible.com/home)
+  * App servers run Docker, [Meteor](https://www.meteor.com/) including [MongoDB](https://www.mongodb.com/)
 
-#### 508 Compliance
+### Code
 
-We made sure this app is 508 compliant, fixed all related problems (including the contrast errors) and made the wordcloud content available to screenreaders.
-You have review the compliance with <a href="https://wave.webaim.org/toolbar/">Webaim WAVE Toolbar</a> (please do not use the online version), [screenshot is provided](/doc/508/508.png).
+* Each developer pushes the code to Github.
+* Upon every code push GitHub notifies [Jinkins Contiuous integration system](http://agilebpa-ci.akira-tech.com:8080) about the new code
+* Jenkins pulls the new code, runs [Jasmine](http://jasmine.github.io/) [unit testing](/tests).
+  * If tests fail Jenking notifies the commit author about the problems by email
+  * If tests succeed Jenkins
+    * builds docker image
+    * pushes it to [Docker Hub](https://registry.hub.docker.com/u/akiratech/rfq993471/)
+    * runs [Ansible playbook](https://github.com/akira-tech/RFQ993471/blob/master/playbook.yml) to perform rolling deploy of the image from DockerHub to the two application server
 
-#### REST API
-  Our application both consumes and exposes data via REST interface:
-  * [consuming open.fda.gov data](https://api.fda.gov/drug/label.json?api_key=AKIRA_API_KEY&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100)
-  * [exposing http://agilebpa.akira-tech.com/words-frequency.json](http://agilebpa.akira-tech.com/words-frequency.json)
+### Data
+
+* User's HTTP request goes to the ELB
+* ELB balances the load between two application servers using
+* Each app server checks local cache for data availability. We use cache to reduce the number of calls to http://open.fda.gov and improve the performance. In this PoC we use MongoDB for chaching, though in all other projects we stick with Redis or Memcached.
+* If the data is not in the cache a call is made to https://api.fda.gov/drug/label.json?api_key=AKIRA_API_KEY&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100, data processed, returned to the client and cached
+* Data is returned to the user via Meteor collections (operating on top of websockets) and presented using D3.js
+* The application also exposes data via REST API: http://agilebpa.akira-tech.com/words-frequency.json](http://agilebpa.akira-tech.com/words-frequency.json
+
+### Continuos monitoring
+
+We use the following systems to provide continuous uptime, performance and security monitoring:
+* __AWS CloudWatch__: systems parameters monitoring (CPU Load, disk space etc)
+* __AWS ELB__: website(s) uptime monitoring (in combination with CloudWatch)
+* __AWS SNS__:event notifications
+* __AWS CloudTrail__: security and system changes monitoring
+* __CloudCheckr__: monitoring information aggregator
+
+[These screenshots provide a good idea of what kind of monitoring information we're getting from this powerful combination](/doc/continuous_monitoring).
+
+## Application
+
+The resulting prototype has the following characteristics:
+* Uses cutting-edge technologies and approaches including, but not limited to HTML5, CSS3, Less, Bootstrap, jQuery, Websockets, D3.js, REST, Meteor, MongoDB, Cordova/Phonegap
+* Runs in a web browser as well as an iOS or Android application
+* Fully-responsive
+* Fully 508-compliant (note there are no errors and contrast errors, we also included the text version of the word cloud for JAWS and similar systems)
+
+You can learn more about our approach in [Github Wiki](https://github.com/akira-tech/RFQ993471/wiki).
+
+[Instructions to install and run](https://github.com/akira-tech/RFQ993471/wiki/Installing-and-Running-the-Application) the application locally using various methods.
