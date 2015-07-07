@@ -2,7 +2,7 @@
 
 ## [Prototype](http://agilebpa.akira-tech.com)
 
-The prototype is available at [http://agilebpa.akira-tech.com](http://agilebpa.akira-tech.com)
+Prototype is available at [http://agilebpa.akira-tech.com](http://agilebpa.akira-tech.com)
 
 ## [Inception](https://github.com/akira-tech/RFQ993471/tree/master/doc/design)
 
@@ -18,14 +18,14 @@ Category 8 | DevOps Engineer          | R. Lancia / A. Ertel
            | Testing, reviews, misc   | E. Liang, R. Siebel, J. Coblentz, J. Phipps
 
 The team participated in a brainstorm (Webex with followup emails) to generate the application idea.
-Our goals were to be relatively simple, dynamic, user-friendly and implementable with the cutting-edge technological stacks.
+Our goals were to be relatively simple, dynamic, user-friendly and implementable with cutting-edge technological stacks.
 We decided to implement an app for retrieving data from http://open.fda.gov for visualizing the word frequency in warning labels grouped by Route and Product Type categories and sorted by frequency of occurrence.
 This application allows users to visualize the prevailing subjects of concern among different types of drugs.
 
 We envisioned the following use cases:
 
 * __General User__:
-  - quickly find prevalent issues or warnings listed in the warning section of product labels
+  - quickly find prevalent issues or warnings listed in warning section of product labels
   - share one's findings with friends using downloadable .png or .svg file
 
 * __Researcher__:
@@ -34,7 +34,7 @@ We envisioned the following use cases:
   - download the word cloud as an image (either .svg or .png) to include into a report
 
 * __Developer__:
-  - consume the data displayed in the wordcloud via REST API for inclusion in one's software product.
+  - consume data displayed in the wordcloud via REST API for inclusion in one's software product.
 
 [![Design Sketch](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/1_sketch_tn.jpg)](https://github.com/akira-tech/RFQ993471/blob/master/doc/design/1_sketch.jpg)
 [![Design Wirframe](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/2_wireframe_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/design/2_wireframe.png)
@@ -50,10 +50,10 @@ For this reason we proceeded with Kanban - an ideal Agile methodology for short 
 
 In our process we were continually
 * collecting ideas via
-  - daily meetings ([see the notes](https://github.com/akira-tech/RFQ993471/wiki/Meeting-Minutes))
+  - daily meetings ([see](https://github.com/akira-tech/RFQ993471/wiki/Meeting-Minutes))
   - [usability tests](https://github.com/akira-tech/RFQ993471/tree/master/doc/usability_test/2015062901)
-  - discussions with people outside the project work team
-* converting the new ideas into Kanban stories in Jira ([see the project reports](https://github.com/akira-tech/RFQ993471/tree/master/doc/reports))
+  - discussions with people outside project work team
+* converting the new ideas into Kanban stories in Jira ([see project reports](https://github.com/akira-tech/RFQ993471/tree/master/doc/reports))
 * discussing, prioritizing and moving stories from the backlog to the development swimlane
 * reevaluating the results the next day
 
@@ -62,14 +62,14 @@ In our process we were continually
 
 ## [Architecture](https://github.com/akira-tech/RFQ993471/tree/master/doc/architecture)
 
-The resulting architecture is presented on the following diagram:
+Resulting architecture is presented on the following diagram:
 
 ![Akira Technologies Agile BPA PoC Architecture](https://github.com/akira-tech/RFQ993471/blob/master/doc/architecture/architecture.png)
 
 ### [Overall System](https://github.com/akira-tech/RFQ993471/tree/master/doc/architecture)
 
 * All system components are hosted in the cloud
-* [DockerHub](https://hub.docker.com/) hosts publicly available image for the application
+* [DockerHub](https://hub.docker.com/) hosts publicly available image for application
 * [Github](https://github.com/akira-tech/RFQ993471) hosts the code
 * [CloudCheckr](http://cloudcheckr.com/) aggregates continuous monitoring information
 * AWS hosts the key system components:
@@ -84,9 +84,9 @@ The resulting architecture is presented on the following diagram:
 ### [Code](https://github.com/akira-tech/RFQ993471/tree/master/doc/continuous_integration)
 
 * Each developer pushes code to Github.
-* Upon every code push GitHub notifies [Jinkins Contiuous integration system](http://agilebpa-ci.akira-tech.com:8080) about the new code
-* Jenkins pulls the new code, runs [Jasmine](http://jasmine.github.io/) [unit testing](/tests).
-  * If tests fail, Jenking notifies the commit author about the problems by email
+* Upon every code push GitHub notifies [Jinkins Contiuous integration system](http://agilebpa-ci.akira-tech.com:8080) about new code
+* Jenkins pulls new code, runs [Jasmine](http://jasmine.github.io/) [unit testing](/tests).
+  * If tests fail, Jenking notifies the commit author about problems by email
   * If tests succeed, Jenkins
     * builds docker image
     * pushes it to [Docker Hub](https://registry.hub.docker.com/u/akiratech/rfq993471/)
@@ -127,7 +127,7 @@ We use the following systems to provide continuous uptime, performance and secur
 
 ## [Application](https://github.com/akira-tech/RFQ993471/tree/master/doc/responsive_and_multiplatform)
 
-The resulting prototype has the following characteristics:
+Resulting prototype has the following characteristics:
 * Uses cutting-edge technologies and approaches including HTML5, CSS3, Less, Bootstrap, jQuery, Websockets, D3.js, REST, Meteor, MongoDB, Cordova/Phonegap
 * Runs in a web browser as well as an iOS or Android application
 * Fully-responsive
