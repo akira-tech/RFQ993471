@@ -16,12 +16,13 @@ On of Akira's project managers worked as the team leader and coordingated the te
 ### B. Team
 
 Akira's team conists of 6 people working simultaneously in multiple projects and joining different efforts on demand.
+
 Category # | LCAT                     | Name
 -----------|--------------------------|----------------------------
 Category 2 | Technical Architect:     | A. Mikhalchuk
 Category 6 | Front End Web Developer: | A. Velichko
 Category 7 | Backend Web Developer:   | A. Mikhalchuk / H. Schmidt
-Category 8 | DevOps Engineer:         | R. Lancia
+Category 8 | DevOps Engineer:         | R. Lancia / A. Ertel
 
 ### C. Technologies
   In this prototype we used the following technologies:
