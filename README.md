@@ -1,4 +1,4 @@
-# Agile BPA PoC for Pool 2 (RFQ993471)
+# Agile BPA PoC for Pool Two (RFQ993471)
 
 ## [Prototype](http://agilebpa.akira-tech.com)
 
