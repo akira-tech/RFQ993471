@@ -84,13 +84,13 @@ Resulting architecture is presented on the following diagram:
 ### [Code](https://github.com/akira-tech/RFQ993471/tree/master/doc/continuous_integration)
 
 * Each developer pushes code to Github.
-* Upon every code push GitHub notifies [Jinkins Contiuous integration system](http://agilebpa-ci.akira-tech.com:8080) about new code
+* Upon every code push GitHub notifies [Jenkins Continuous integration system](http://agilebpa-ci.akira-tech.com:8080) about new code
 * Jenkins pulls new code, runs [Jasmine](http://jasmine.github.io/) [unit testing](/tests).
-  * If tests fail, Jenking notifies the commit author about problems by email
+  * If tests fail, Jenkins notifies the commit author about problems by email
   * If tests succeed, Jenkins
     * builds docker image
     * pushes it to [Docker Hub](https://registry.hub.docker.com/u/akiratech/rfq993471/)
-    * runs [Ansible playbook](https://github.com/akira-tech/RFQ993471/blob/master/playbook.yml) to perform rolling deploy of the image from DockerHub to the two application server
+    * runs [Ansible playbook](https://github.com/akira-tech/RFQ993471/blob/master/playbook.yml) to perform rolling deployment of the image from DockerHub to the two application servers
 
 [![Jenkins Build](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/jenkins_build_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/continuous_integration/full_log.txt)
 
@@ -98,8 +98,8 @@ Resulting architecture is presented on the following diagram:
 ### [User Interface](https://github.com/akira-tech/RFQ993471/tree/master/doc/design)
 
 * User's HTTP request goes to ELB
-* ELB balances the load between two application servers using
-* Each app server checks local cache for data availability. We use cache to reduce the number of calls to http://open.fda.gov and improve the performance.  Unlike in other project, In this PoC we use MongoDB for caching.
+* ELB balances the load between two application servers
+* Each app server checks local cache for data availability. We use caching to reduce the number of calls to http://open.fda.gov and improve the performance.  Unlike in other projects, in this PoC we use MongoDB for caching.
 * If the data is not in the cache a call is made to https://api.fda.gov/drug/label.json?api_key=AKIRA_API_KEY&search=effective_time:[20130601+TO+20140731]+AND+_exists_:warnings&limit=100, data is processed, returned to the client, and stored in cache
 * Data is returned to the user via Meteor collections (operating on top of [websockets](http://www.websocket.org/)) and presented using [D3.js](http://d3js.org/)
 * Exposes data via REST API: http://agilebpa.akira-tech.com/words-frequency.json](http://agilebpa.akira-tech.com/words-frequency.json
@@ -109,11 +109,11 @@ Resulting architecture is presented on the following diagram:
 ### [Continuous monitoring](https://github.com/akira-tech/RFQ993471/tree/master/doc/continuous_monitoring)
 
 We use the following systems to provide continuous uptime, performance and security monitoring:
-* __AWS CloudWatch__: systems parameters monitoring (CPU Load, disk space etc)
+* __AWS CloudWatch__: systems parameter monitoring (CPU Load, disk space etc)
 * __AWS ELB__: uptime monitoring (in combination with CloudWatch)
 * __AWS SNS__: event notifications
 * __AWS CloudTrail__: security and system change monitoring
-* __CloudCheckr__: monitoring information aggregator
+* __CloudCheckr__: information monitoring aggregator
 
 [![CloudCheckr](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/cloud_checkr_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/continuous_monitoring/cloud_checkr.png)
 [![CloudTrail](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/cloud_trail_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/continuous_monitoring/cloud_trail.png)
@@ -123,7 +123,7 @@ We use the following systems to provide continuous uptime, performance and secur
 [![CloudWatch](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/cloud_watch_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/continuous_monitoring/cloud_watch.png)
 
 
-[These screenshots provide a feel for the monitoring information available to us](/doc/continuous_monitoring).
+[These screenshots illustrate the monitoring information available to us](/doc/continuous_monitoring).
 
 ## [Application](https://github.com/akira-tech/RFQ993471/tree/master/doc/responsive_and_multiplatform)
 
@@ -131,7 +131,7 @@ Resulting prototype has the following characteristics:
 * Uses cutting-edge technologies and approaches including HTML5, CSS3, Less, Bootstrap, jQuery, Websockets, D3.js, REST, Meteor, MongoDB, Cordova/Phonegap
 * Runs in a web browser as well as an iOS or Android application
 * Fully-responsive
-* Fully 508-compliant (no errors / contrast errors, provided text version of the word cloud for JAWS and similar systems)
+* Fully 508-compliant (no errors including contrast and provided text version of the word cloud for JAWS and similar systems)
 
 [![508 Compliance](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/508_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/508/508.png)
 [![Wide Layout](https://github.com/akira-tech/RFQ993471/blob/master/doc/thumbnails/chrome_wide_tn.png)](https://github.com/akira-tech/RFQ993471/blob/master/doc/responsive_and_multiplatform/chrome_wide_2.png)
