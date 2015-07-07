@@ -14,7 +14,7 @@ Category 2 | Technical Architect      | A. Mikhalchuk
 Category 6 | Front End Web Developer  | A. Velichko
 Category 7 | Backend Web Developer    | A. Mikhalchuk / H. Schmidt
 Category 8 | DevOps Engineer          | R. Lancia / A. Ertel
-           | Project Coordinator      | B. Dorsey
+           | Project Lead             | B. Dorsey
            | Testing, reviews, misc   | E. Liang, R. Siebel, J. Coblentz, J. Phipps
 
 The project workforce participated in a brainstorm (Webex with followup emails) to generate the application idea.
