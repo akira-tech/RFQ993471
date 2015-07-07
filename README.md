@@ -39,7 +39,7 @@ Akira's team conists of 6 people working simultaneously in multiple projects and
   On every code push to Github Jenkins pulls the new code using hooks and runs unit tests. Upon successful tests run it calls Docker to build image, push it to the Docker Hub and runs rolling deloy from Docker Hub to the two app servers in series using Ansible.
 
 ### E. Unit tests
-  We used [Jasmine](http://jasmine.github.io/ for [unit testing](/tests). [Npm, node.js](https://nodejs.org/download/), underscore and fs are required to run the rests:
+  We used [Jasmine](http://jasmine.github.io/) for [unit testing](/tests). [Npm, node.js](https://nodejs.org/download/), underscore and fs are required to run the rests:
 
   ```sh
   npm install -g underscore fs
@@ -90,7 +90,7 @@ Please find the complete list of technologies and corresponding [licenses on the
 #### 508 Compliance
 
 We made sure this app is 508 compliant, fixed all related problems (including the contrast errors) and made the wordcloud content available to screenreaders.
-You have review the compliance with <a href="https://wave.webaim.org/toolbar/">Webaim WAVE Toolbar</a> (please do not use the online version), [screenshot if provided](/doc/508/508.png).
+You have review the compliance with <a href="https://wave.webaim.org/toolbar/">Webaim WAVE Toolbar</a> (please do not use the online version), [screenshot is provided](/doc/508/508.png).
 
 #### REST API
   Our application both consumes and exposes data via REST interface:
